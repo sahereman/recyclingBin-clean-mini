@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "w-dialog": "/components/w-dialog/w-dialog"
+  },
+  "navigationBarTitleText": "工蚁回收员"
 }

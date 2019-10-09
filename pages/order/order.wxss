@@ -1,0 +1,198 @@
+/* .order-list {
+  margin: 26rpx 0;
+  background: #fff;
+  border-radius:9rpx;
+  background:rgba(255,255,255,1);
+}
+.price-image {
+  width: 36rpx;
+  height: 38rpx;
+  margin-right: 12rpx;
+}
+.list-time-status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 37rpx;
+  width: 100%;
+  height: 92rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+.list-time {
+  margin: auto;
+  margin-left: 46rpx;
+  font-size:28rpx;
+ color:#b8b8b8;
+}
+.list-status {
+  margin: auto;
+  margin-right: 32rpx;
+  font-size:28rpx;
+  color:#b8b8b8;
+}
+.list-total {
+  margin: auto;
+  margin-right: 32rpx;
+  font-size:28rpx;
+  color:#b8b8b8;
+}
+.list-total text {
+  margin: 0 10rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  color:rgba(89,219,157,1);
+}
+.list-localtion {
+  display: flex;
+  margin-bottom: 36rpx;
+}
+.circle {
+  width:5px;
+  height:5px;
+  background:rgba(89,219,157,1);
+  border-radius:50%;
+  margin: auto 10rpx auto 46rpx;
+}
+.list-location-text {
+  width: 85%;
+  font-size: 32rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list-info {
+  padding-bottom: 36rpx;
+}
+.child_list {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+.child_list view {
+  font-size:28rpx;
+  color:#999;
+}
+.type-name {
+  width: 35%;
+  margin-left: 65rpx;
+  margin-right: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.type-weight {
+  width: 35%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.type-price {
+  display: flex;
+}
+.type-price text {
+  color:#9be9c4;
+  font-weight: bold;
+}
+
+
+.golist{
+  width:386rpx;
+  height:78rpx;
+  line-height:78rpx;
+  background:#62dfa3;
+  color:#fff;
+  margin:auto;
+  font-size:32rpx;
+  border-radius:10rpx;
+} */
+
+page, .container {
+  background: #f3f4f6;
+}
+
+.orderLists {
+  padding: 15rpx 35rpx;
+  box-sizing: border-box;
+}
+
+.orderLists .order_item {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16rpx;
+  padding: 40rpx 20rpx;
+  margin-bottom:20rpx;
+}
+
+.orderLists .order_item ._bt {
+  height: 36rpx;
+  line-height: 36rpx;
+  display: flex;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFangSC;
+  font-weight: 400;
+  color: rgba(136, 136, 136, 1);
+  margin-bottom: 33rpx;
+}
+
+.orderLists .order_item ._bt image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 5rpx;
+}
+
+.orderLists .order_item ._bd {
+  border-left: 6rpx solid #31ce9e;
+  margin: 0 8rpx;
+  box-sizing: border-box;
+}
+
+.orderLists ._bd .street_name {
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFangSC;
+  font-weight: 500;
+  color: rgba(34, 34, 34, 1);
+  line-height: 48rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 19rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.orderLists ._bd .street_name image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 15rpx;
+}
+
+.orderLists ._bd .street_name view {
+  max-width: 460rpx;
+}
+
+.orderLists ._bd .detail_ad {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFangSC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 40rpx;
+  padding:5rpx 0 5rpx 19rpx;
+}
+.orderLists ._bd .re_con{
+  height:72rpx;
+  background:rgba(249,249,249,1);
+  border-radius:4rpx;
+  line-height:72rpx;
+  display:flex;
+  padding-left:19rpx;
+  font-size:28rpx;
+  color:#666;
+}
+.orderLists .time_part{
+  padding-top:22rpx;
+  display:flex;
+  color:#888;
+  line-height:36rpx;
+}
+.orderLists .time_part image{
+  width:36rpx;
+  height:36rpx;
+  margin-right:5rpx;
+}

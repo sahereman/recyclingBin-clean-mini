@@ -1,1 +1,66 @@
-<view>订单</view>
+<view class="container">
+  <view class="orderLists container-inner">
+  <!--  wx:if="{{orderLists.length}}" -->
+    <view>
+    <!--  wx:for="{{orderLists}}" wx:key="{{index}}" -->
+      <block wx:for="{{orderLists}}" wx:key="{{index}}">
+        <view class="order_item">
+          <view class="_bt">
+            <image src="../../assets/images/order/order_icon.png"></image>
+            订单编号：11111111111
+          </view>
+          <view class="_bd">
+            <view class="street_name">
+              <view>辽宁路街道</view>
+              <image src="../../assets/images/order/fabric_cion.png"></image>
+              <image src="../../assets/images/order/recycling_icon.png"></image>
+            </view>
+            <view class="detail_ad">中国山东省青岛市开平路533号</view>
+            <view class="re_con">
+              <view>纺织物</view>
+              <view> ， </view>
+              <view>纺织物</view>
+            </view>
+          </view>
+          <view class="time_part">
+            <image src="../../assets/images/order/time_icon.png"></image>
+            <view>回收时间：2019年9月18日  14:30</view>
+          </view>
+        </view>
+
+
+
+        <!-- <view class="order-list">
+          <view class="list-time-status">
+            <view class="list-time">{{item.created_at}}</view>
+            <view class="list-total">共收入<text>{{item.total}}</text>奖励金</view>
+          </view>
+          <view class="list-localtion">
+            <view class="circle"></view>
+            <view class="list-location-text">{{item.bin_name}}</view>
+          </view>
+          <view class="list-info" wx:if="{{item.items.length}}">
+            <block wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="childItem" wx:key="{{idx}}">
+              <view class="child_list">
+                <view class="type-name">{{childItem.type_name}}</view>
+                <view class="type-weight">{{childItem.number}}{{childItem.unit}}</view>
+                <view class="type-price">
+                  <image class="price-image" src="../../assets/images/temp/dollar_icon.png" />
+                  <text>{{childItem.subtotal}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view> -->
+      </block>
+      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view>
+    </view>
+    <!-- <view wx:else  class="data-empty">
+      <view class="noOrder_con">
+        <image src="../../assets/images/common/nodata_bg.png"></image>
+        <view class="noorder_text">暂无记录</view>
+         <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+      </view>
+    </view> -->
+  </view>
+</view>

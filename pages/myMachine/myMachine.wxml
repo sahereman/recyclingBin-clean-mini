@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="orderLists container-inner">
+    <view wx:if="{{orderLists.length}}">
+      <block wx:for="{{orderLists}}" wx:key="{{index}}">
+        <view class="order-list">
+          <view class="list-time-status">
+            <view class="list-time">{{item.name}}</view>
+            <!-- <view class="list-status">{{item.status_text}}</view> -->
+            <view class="list-total">{{item.address}}
+              <text>编号：{{item.no}}</text>
+            </view>
+          </view>
+          <view class="list-localtion">
+            <!-- <view class="circle"></view> -->
+            <view class="list-location-text">{{item.bin_name}}</view>
+          </view>
+          <view class="list-info">
+            <!-- <block wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="childItem" wx:key="{{idx}}">
+              
+            </block> -->
+            <view class="child_list">
+              <view class="type-name">{{item.type_fabric.name}}</view>
+              <view class="type-weight">{{item.type_fabric.number}}{{item.type_fabric.unit}}</view>
+              <view class="type-price">
+                <image class="price-image" src="../../assets/images/temp/dollar_icon.png" />
+                <text>{{item.type_fabric.status_text}}</text>
+              </view>
+            </view>
+            <view class="child_list">
+              <view class="type-name">{{item.type_paper.name}}</view>
+              <view class="type-weight">{{item.type_paper.number}}{{item.type_paper.unit}}</view>
+              <view class="type-price">
+                <image class="price-image" src="../../assets/images/temp/dollar_icon.png" />
+                <text>{{item.type_paper.status_text}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view>
+    </view>
+    <view wx:else class="data-empty">
+      <view class="noOrder_con">
+        <image src="../../assets/images/temp/no_order.jpg"></image>
+        <view class="noorder_text">暂无记录</view>
+      </view>
+    </view>
+  </view>
+</view>

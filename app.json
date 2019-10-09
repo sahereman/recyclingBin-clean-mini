@@ -1,7 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/order/order",
+    "pages/index/index",
+    "pages/recoveryPrice/recoveryPrice",
+    
+    "pages/myMachine/myMachine",
+    "pages/resetPwd/resetPwd",
     "pages/userCenter/userCenter"
   ],
   "permission": {

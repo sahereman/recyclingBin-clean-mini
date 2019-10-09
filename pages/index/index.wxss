@@ -19,3 +19,195 @@
 .usermotto {
   margin-top: 200px;
 }
+
+
+/* 扫码回收 */
+.category-lists {
+  padding-top:50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.category-list-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.category-list-item image {
+  margin: 20rpx auto;
+  width: 90rpx;
+  height: 90rpx;
+}
+.category-list-item text {
+  font-size:28rpx;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  line-height:30rpx;
+  opacity:0.6;
+}
+/* 扫码回收 */
+
+/* 顶部userPart */
+.userPart{
+  padding:44rpx 0 26rpx 36rpx;
+}
+.userPart .user_msg{
+  float:left;
+  display:flex;
+  line-height:64rpx;
+  align-items:center;
+}
+.userPart .head_img{
+  width:64rpx;
+  border-radius:50%;
+  overflow:hidden;
+  margin-right:8rpx;
+  height:64rpx;
+}
+.userPart .username_sign{
+  width:20rpx;
+  margin-right:2rpx;
+}
+.userPart .user_name{
+  width:310rpx;
+}
+
+.userPart .user_nav{
+  float:right;
+  display:flex;
+  font-size:30rpx;
+  color:#222222;
+  line-height:64rpx;
+  align-items:center;
+  margin-right:34rpx;
+  position:relative;
+}
+.userPart .user_nav .new_tip{
+  position:absolute;
+  left:30rpx;
+  top:16rpx;
+  width:14rpx;
+  height:14rpx;
+  background:#F4312F;
+  border-radius:50%;
+}
+.userPart .user_nav image{
+  width:48rpx;
+  margin-right:6rpx;
+}
+/* 顶部userPart */
+
+/* 余额 */
+.myMoney{
+  padding:0 11rpx;
+  box-sizing:border-box;
+  position:relative;
+}
+.myMoney .money_bg{
+  width:100%;
+  height:328rpx;
+}
+.myMoney .bd_con{
+  position:absolute;
+  left:118rpx;
+  top:78rpx;
+}
+._number{
+  color:#fff;
+  font-weight:600;
+  font-size:58rpx;
+  line-height:80rpx;
+}
+._unit{
+  color:#fff;
+  line-height:48rpx;
+  font-size:28rpx;
+  position:relative;
+}
+._unit .go_my_money{
+  width:32rpx;
+  height:32rpx;
+  position:absolute;
+  left:130rpx;
+  top:12rpx;
+}
+/* 余额 */
+
+/* 线路规划 */
+.lineRoutepart{
+  padding:10rpx 76rpx;
+}
+.lineRoutepart .line_route{
+  width:100%;
+
+}
+/* 线路规划 */
+
+/* 导航 */
+.navPart{
+  padding:48rpx 36rpx;
+}
+.navPart .line_item{
+  height:236rpx;
+  background:#E1FAF6;
+  border-radius:150rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.navPart .line_item ._go{
+  width:160rpx;
+  text-align:center;
+  margin:0 25rpx;
+  height:148rpx;
+}
+.navPart .line_item ._go image{
+  width:112rpx;
+  height:104rpx;
+}
+.navPart .line_item ._go view{
+  line-height:44rpx;
+}
+.navPart .line_item.no_bg{
+  background:#fff;
+}
+
+.navPart .line_item.no_bg ._go image{
+  width:106rpx;
+}
+.navPart .line_item ._go._cur{
+  height:172rpx;
+  margin-top:-20rpx;
+}
+.navPart .line_item ._go._cur image{
+  width:144rpx;
+  height:128rpx;
+}
+
+
+/* 导航 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

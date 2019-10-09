@@ -1,13 +1,109 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="container home_page">
+  <view class="userPart clearfix">
+    <view class="user_msg">
+      <image class="head_img" wx:if="{{userinfo.avatar_url}}" src="{{userinfo.avatar_url}}" />
+      <image class="head_img" wx:else src="../../assets/images/home/temp_headimg.jpg" />
+      <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
+      <view class="user_name cutWord">
+        <block wx:if="{{userinfo.name}}">{{userinfo.name}}</block>
+        <block wx:else>用户名</block>
+      </view>
+    </view>
+    <view class="user_nav">
+      <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
+      <view>设置</view>
+    </view>
+    <view class="user_nav">
+      <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
+      <view class="new_tip"></view>
+      <view>消息</view>
+    </view>
   </view>
-  <view class="usermotto">扫码取货</view>
-  <view class="usermotto">我的回收机</view>
-  <view class="usermotto">回收价格</view>
+  <!-- 账户余额 -->
+  <view class='myMoney'>
+    <image class="money_bg" src="../../assets/images/home/money_bg.png" />
+    <view class="bd_con">
+      <view class="_number">70.88</view>
+      <view class="_unit">余额（元）
+        <image class="go_my_money" src="../../assets/images/home/go_my_money.png" />
+      </view>
+    </view>
+  </view>
+  <!-- 线路规划 -->
+  <view class="lineRoutepart">
+    <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+      <image class="line_route" mode='widthFix' src="../../assets/images/home/line_route.png" />
+    </navigator>
+  </view>
+
+  <!-- 导航 -->
+  <view class="navPart">
+    <view class="line_item">
+      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav1.png" />
+        <view>扫码取货</view>
+      </navigator>
+      <navigator class="_go _cur" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav2.png" />
+        <view>我的回收机</view>
+      </navigator>
+      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route"src="../../assets/images/home/nav3.png" />
+        <view>回收记录</view>
+      </navigator>
+    </view>
+    <view class="line_item no_bg">
+      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav4.png" />
+        <view>个人资料</view>
+      </navigator>
+      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route"src="../../assets/images/home/nav5.png" />
+        <view>帮助中心</view>
+      </navigator>
+      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav6.png" />
+        <view>关于我们</view>
+      </navigator>
+    </view>
+  </view>
+
+
+
+  <!-- <view class="category-lists">
+    <view class="category-list-item" bindtap="getScanCode">
+      <image src="../../assets/images/temp/sweepCode.png" mode='widthFix' />
+      <text>扫码取货</text>
+    </view>
+    <navigator class="category-list-item" url="../../pages/myMachine/myMachine" hover-class="none">
+      <image src="../../assets/images/temp/recyclingClassification.png" mode='widthFix' />
+      <text>我的回收机</text>
+    </navigator>
+    <navigator class="category-list-item" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+       <image src="../../assets/images/temp/deliveryGuide.png" mode='widthFix' />
+      <text>回收价格</text>
+    </navigator>
+  </view> -->
+
+  <!-- 账号密码登录 -->
+  <w-dialog show="{{showModal}}">
+    <view slot="content" class='main-content'>
+      <view class="dialog_title">登陆
+        <image bindtap="hideModal" src="../../assets/images/temp/close_icon2.png" mode="widthFix"></image>
+      </view>
+      <view class="content-row">
+        <image src="../../assets/images/temp/phone_icon.png"></image>
+        <input type="number" placeholder-class="_input" value="{{inaccount}}" placeholder="请输入账号" maxlength="11" bindinput='bluraccount' />
+      </view>
+      <view class="content-row pwd_row">
+        <image src="../../assets/images/temp/pwd_icon.png"></image>
+        <input type="number" placeholder-class="_input" value="{{pwd}}" bindinput='blurpwd' placeholder="请输入密码" />
+        <!-- <view >获取验证码</view> -->
+      </view>
+    </view>
+    <view slot="operation" class="main-footer bindWxPhone">
+      <button class='confirm-btn' bindtap="loginus">立即登陆</button>
+    </view>
+  </w-dialog>
 </view>

@@ -10,7 +10,16 @@
         <block wx:else>用户名</block>
       </view>
     </view>
-    <view class="user_nav">
+    <navigator class="user_nav" url="../../pages/setting/setting" hover-class="none">
+      <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
+      <view>设置</view>
+    </navigator>
+    <navigator class="user_nav" url="../../pages/setting/setting" hover-class="none">
+     <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
+      <view class="new_tip"></view>
+      <view>消息</view>
+    </navigator>
+    <!-- <view class="user_nav">
       <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
       <view>设置</view>
     </view>
@@ -18,7 +27,7 @@
       <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
       <view class="new_tip"></view>
       <view>消息</view>
-    </view>
+    </view> -->
   </view>
   <!-- 账户余额 -->
   <view class='myMoney'>

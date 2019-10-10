@@ -8,6 +8,7 @@ Page({
     token:'',
     page:1,
     orderLists:[],
+    isLast:false,//最后一页
     total_pages:1//总页数
   },
   onShow:function(){
@@ -69,7 +70,8 @@ Page({
     that.setData({
       page:1,
       total_pages:1,
-      orderLists:[]
+      orderLists:[],
+      isLast:false
     })
     that.getOrderList();
   },
@@ -77,6 +79,10 @@ Page({
     var that = this;
     if (that.data.page <= that.data.total_pages){
       that.getOrderList();
+    }else{
+      that.setData({
+        isLast:true
+      })
     }
   }
 })

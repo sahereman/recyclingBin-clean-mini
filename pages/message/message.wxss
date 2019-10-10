@@ -1,0 +1,58 @@
+page{
+  background:#F3F4F6;
+}
+view{
+  box-sizing:border-box;
+}
+.msg_part{
+  padding:20rpx 34rpx 0 36rpx;
+}
+.msg_part .msg_item{
+  background:#fff;
+  border-radius:16rpx;
+  padding:40rpx;
+  margin-bottom:20rpx;
+}
+.msg_part .msg_item .bt{
+  color:#222;
+  line-height:48rpx;
+  font-size:34rpx;
+  margin-bottom:10rpx;
+}
+.msg_part .msg_item .bt text{
+  background:#F4312F;
+  width:12rpx;
+  height:12rpx;
+  display:inline-block;
+  border-radius:50%;
+  position:relative;
+  left:5rpx;
+  top:-13rpx;
+}
+.msg_part .msg_item ._ad{
+  color:#666;
+  line-height:40rpx;
+  font-size:28rpx;
+  margin-bottom:10rpx;
+}
+.msg_part .msg_item ._no{
+  color:#888;
+  line-height:34rpx;
+  font-size:22rpx;
+}
+.msg_part .msg_item ._time{
+  color:#888;
+  line-height:34rpx;
+  font-size:24rpx;
+  padding-top:24rpx;
+}
+
+
+
+
+
+
+
+
+
+

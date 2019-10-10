@@ -1,0 +1,55 @@
+<view class="msg_part">
+  <view class="msg_item">
+    <view class="bt">回收箱已满<text></text></view>
+    <view class="_ad">宁夏路社区，宁夏路60号，小区物业旁边</view>
+    <view class="_no">回收箱编号：NO0984874 </view>
+    <view class="_no">满箱类型： 纺织物（8公斤）</view>
+    <view class="_time">2019年9月28日 23:30</view>
+  </view>
+  <view class="msg_item">
+    <view class="bt">充值成功<text></text></view>
+    <view class="_no">订单编号：NO0984874  </view>
+    <view class="_no">支付方式： 微信支付</view>
+    <view class="_time">2019年9月28日 23:30</view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class="setting_page">
+  <view class="setting_nav">
+    <navigator class="setting_item" url="../../pages/resetPwd/resetPwd" hover-class="none">
+      修改密码
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/aboutUs/aboutUs" hover-class="none">
+      关于我们
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/helpCenter/helpCenter" hover-class="none">
+      帮助中心
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+</view> -->

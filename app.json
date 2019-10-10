@@ -1,12 +1,19 @@
 {
   "pages": [
-    "pages/order/order",
+    "pages/priceInstructions/priceInstructions",
     "pages/index/index",
-    "pages/recoveryPrice/recoveryPrice",
+    "pages/message/message",
     
+    "pages/aboutUs/aboutUs",
+    "pages/setting/setting",
+    "pages/helpCenter/helpCenter",
+    "pages/userCenter/userCenter",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    
+    "pages/recoveryPrice/recoveryPrice",
     "pages/myMachine/myMachine",
-    "pages/resetPwd/resetPwd",
-    "pages/userCenter/userCenter"
+    "pages/resetPwd/resetPwd"
   ],
   "permission": {
     "scope.userLocation": {

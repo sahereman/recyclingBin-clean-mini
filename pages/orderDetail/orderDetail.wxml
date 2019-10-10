@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="orderLists">
+    <view class="order_item">
+      <view class="_bt">
+        <image src="../../assets/images/order/order_icon.png"></image>
+        订单编号：{{orderMsg.sn}}
+      </view>
+      <view class="_bd">
+        <view class="street_name">
+          <view>{{orderMsg.bin_name}}</view>
+        </view>
+        <view class="detail_ad">{{orderMsg.bin_address}}</view>
+      </view>
+      <view class="time_part">
+        <image src="../../assets/images/order/time_icon.png"></image>
+        <view>{{orderMsg.created_at}}</view>
+      </view>
+    </view>
+    <view class="goods_detail order_item">
+      <view class="_title">
+        <image src="../../assets/images/home/username_sign.png"></image>取货详情
+      </view>
+      <view class="goods_list">
+        <view class="_item {{item.type_slug=='fabric'?'fabric':''}}" wx:for="{{orderMsg.items}}" wx:key="{{index}}">
+          <image class="_fabric" src="../../assets/images/order/fabric_big_cion.png"></image>
+          <image src="../../assets/images/order/recycling_big_icon.png"></image>
+          <view class="desc">{{item.type_name}} X {{item.number}}{{item.unit}}</view>
+          <view class="_price">￥{{item.subtotal}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

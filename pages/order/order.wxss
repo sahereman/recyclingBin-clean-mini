@@ -1,116 +1,9 @@
-/* .order-list {
-  margin: 26rpx 0;
-  background: #fff;
-  border-radius:9rpx;
-  background:rgba(255,255,255,1);
-}
-.price-image {
-  width: 36rpx;
-  height: 38rpx;
-  margin-right: 12rpx;
-}
-.list-time-status {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 37rpx;
-  width: 100%;
-  height: 92rpx;
-  border-bottom: 1px solid #ebebeb;
-}
-.list-time {
-  margin: auto;
-  margin-left: 46rpx;
-  font-size:28rpx;
- color:#b8b8b8;
-}
-.list-status {
-  margin: auto;
-  margin-right: 32rpx;
-  font-size:28rpx;
-  color:#b8b8b8;
-}
-.list-total {
-  margin: auto;
-  margin-right: 32rpx;
-  font-size:28rpx;
-  color:#b8b8b8;
-}
-.list-total text {
-  margin: 0 10rpx;
-  font-size:30rpx;
-  font-weight:bold;
-  color:rgba(89,219,157,1);
-}
-.list-localtion {
-  display: flex;
-  margin-bottom: 36rpx;
-}
-.circle {
-  width:5px;
-  height:5px;
-  background:rgba(89,219,157,1);
-  border-radius:50%;
-  margin: auto 10rpx auto 46rpx;
-}
-.list-location-text {
-  width: 85%;
-  font-size: 32rpx;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.list-info {
-  padding-bottom: 36rpx;
-}
-.child_list {
-  display: flex;
-  margin-bottom: 24rpx;
-}
-.child_list view {
-  font-size:28rpx;
-  color:#999;
-}
-.type-name {
-  width: 35%;
-  margin-left: 65rpx;
-  margin-right: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.type-weight {
-  width: 35%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.type-price {
-  display: flex;
-}
-.type-price text {
-  color:#9be9c4;
-  font-weight: bold;
-}
-
-
-.golist{
-  width:386rpx;
-  height:78rpx;
-  line-height:78rpx;
-  background:#62dfa3;
-  color:#fff;
-  margin:auto;
-  font-size:32rpx;
-  border-radius:10rpx;
-} */
-
 page, .container {
   background: #f3f4f6;
 }
 
 .orderLists {
-  padding: 15rpx 35rpx;
+  padding: 20rpx 36rpx;
   box-sizing: border-box;
 }
 
@@ -155,6 +48,7 @@ page, .container {
   padding-left: 19rpx;
   box-sizing: border-box;
   flex-wrap: wrap;
+  margin-bottom:4rpx;
 }
 
 .orderLists ._bd .street_name image {
@@ -172,11 +66,11 @@ page, .container {
   font-family: PingFangSC-Regular, PingFangSC;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
-  line-height: 40rpx;
+  line-height: 48rpx;
   padding:5rpx 0 5rpx 19rpx;
+  margin-bottom:10rpx;
 }
 .orderLists ._bd .re_con{
-  height:72rpx;
   background:rgba(249,249,249,1);
   border-radius:4rpx;
   line-height:72rpx;
@@ -184,6 +78,7 @@ page, .container {
   padding-left:19rpx;
   font-size:28rpx;
   color:#666;
+  flex-wrap:wrap;
 }
 .orderLists .time_part{
   padding-top:22rpx;

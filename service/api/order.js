@@ -11,3 +11,13 @@ export function getTopicCategories(requestData) {
     }
   })
 } 
+// 获取订单详情
+export function getOrderDetail(requestData) {
+  return request({
+    url: 'orders/' + requestData.order_id,
+    method: "GET",
+    header: {
+      Authorization: requestData.token
+    }
+  })
+} 

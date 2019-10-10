@@ -1,0 +1,125 @@
+
+view{
+  box-sizing:border-box;
+}
+.aboutUs{
+  background:linear-gradient(#49d392,#5fd79c,#1fc8a8);
+  padding: 42rpx 34rpx 0 36rpx;
+}
+.aboutUs .about_con{
+  background:rgba(255,255,255,1);
+  border-radius:32rpx;
+  padding:40rpx 20rpx;
+}
+.aboutUs .about_con .about_top{
+  padding:0 24rpx;
+}
+.about_con .logo{
+  width:264rpx;
+  height:112rpx;
+  margin-bottom:28rpx;
+}
+.about_con .aboutW{
+  font-size:28rpx;
+  line-height: 40rpx;
+  color:#666;
+  text-align:justify;
+}
+.about_con .aboutW view{
+  margin-bottom:42rpx;
+}
+.about_con ._time{
+  line-height:40rpx;
+  color:#AAAAAA;
+  font-size:28rpx;
+  position:relative;
+  margin-bottom:42rpx;
+}
+.about_con .share_btn{
+  position:absolute;
+  right:0;
+  bottom:0;
+  border-radius:32rpx;
+  display:flex;
+  align-items:center;
+  height:56rpx;
+  line-height:56rpx;
+  font-size:28rpx;
+  color:#00B395;
+  border:2px solid rgba(11,185,163,1);
+  padding:0 12rpx 0 24rpx;
+}
+.about_con .share_btn image{
+  width:32rpx;
+  height:32rpx;
+}
+
+.about_con .contactUs{
+  border-top:1px solid #F1F1F1;
+  padding-top:42rpx;
+  padding-bottom:30rpx;
+}
+.com_title{
+  display: flex;
+  font-size: 34rpx;
+  color: #222;
+  line-height: 48rpx;
+  align-items: center;
+  margin-bottom:30rpx;
+}
+.com_title image {
+  width: 18rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.about_con .contactUs .contact_con{
+  font-size:28rpx;
+  line-height:40rpx;
+  color:#666;
+  padding:0 26rpx;
+  margin-bottom:10rpx;
+}
+
+.about_con .joinUs{
+  padding-top:45rpx;
+  text-align:center;
+}
+.about_con .joinUs image{
+  width:288rpx;
+  height:288rpx;
+  margin:0 auto;
+}
+.about_con .joinUs view{
+  font-size:28rpx;
+  line-height:40rpx;
+  color:#666;
+}
+
+
+.footer{
+  padding:40rpx 0 96rpx;
+  text-align:center;
+}
+.footer image{
+  width:240rpx;
+  height:240rpx;
+}
+.footer view{
+  font-size:30rpx;
+  line-height:36rpx;
+  color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+page{
+  background:#F3F4F6;
+}
+view{
+  box-sizing:border-box;
+}
+.setting_nav{
+  padding:0 46rpx;
+  background:#fff;
+}
+.setting_nav .setting_item{
+  border-bottom:1px solid #F1F1F1;
+  font-size:34rpx;
+  color:#222;
+  padding-top:12rpx;
+  line-height:92rpx;
+  position:relative;
+}
+.setting_nav .setting_item image{
+  position:absolute;
+  width:32rpx;
+  height:34rpx;
+  right:0;
+  top:40rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

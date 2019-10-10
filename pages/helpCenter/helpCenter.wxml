@@ -1,0 +1,16 @@
+<view class="help_center">
+  <view class="com_title">
+    <image src="../../assets/images/home/username_sign.png"></image>常见问题
+  </view>
+  <view class="help_con">
+    <view class="help_item {{item.isOpen==true?'cur':''}}" wx:for="{{helpData}}" wx:key="index" wx:for-index="index" bindtap="openQues" data-index="{{index}}">
+      <view class="_ques">{{item.ques}}</view>
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+      <view class="_ans">{{item.ans}}</view>
+    </view>
+  </view>
+  <view class="floatpart">
+    <image class="_tell_us" bindtap="tellUs" src="../../assets/images/my/tellUs.png"></image>
+    <button plain open-type="contact"><image src="../../assets/images/my/weChat.png"></image></button>
+  </view>
+</view>

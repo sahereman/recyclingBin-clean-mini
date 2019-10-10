@@ -1,0 +1,16 @@
+<view class="setting_page">
+  <view class="setting_nav">
+    <navigator class="setting_item" url="../../pages/resetPwd/resetPwd" hover-class="none">
+      修改密码
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/aboutUs/aboutUs" hover-class="none">
+      关于我们
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/helpCenter/helpCenter" hover-class="none">
+      帮助中心
+      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+</view>

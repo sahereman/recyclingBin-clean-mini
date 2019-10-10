@@ -1,0 +1,109 @@
+page{
+  background:#F3F4F6;
+}
+page .banner image{
+  width:100%;
+}
+.userCon{
+  position:relative;
+  left:0;
+  right:0;
+  margin:auto;
+  top:-136rpx; 
+  width:680rpx;
+  background:#fff;
+  padding:30rpx;
+  box-sizing:border-box;
+  border-radius:32rpx;
+}
+
+.userCon ._user{
+  display:flex;
+  margin-bottom:57rpx;
+}
+.userCon ._user image{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+}
+.userCon ._user ._info{
+  width:500rpx;
+  box-sizing:border-box;
+  padding-left:20rpx;
+  padding-top:12rpx;
+}
+.userCon ._user ._name{
+  font-size:36rpx;
+  color:#323232;
+  line-height:50rpx;
+  margin-bottom:14rpx;
+}
+.userCon ._user ._tell{
+  font-size:24rpx;
+  color:#888;
+  line-height:34rpx;
+}
+.userCon ._time{
+  height:87rpx;
+  line-height:87rpx;
+  color:#222;
+  font-size:32rpx;
+  border-bottom:1px solid #F1F1F1;
+  margin-bottom:10rpx;
+  padding:0 2rpx;
+  box-sizing:border-box;
+}
+.userCon ._time text{
+  float:right;
+  color:#AAAAAA;
+  font-size:28rpx;
+}
+
+.userCon .help_center{
+  height:87rpx;
+  line-height:87rpx;
+  color:#222;
+  font-size:32rpx;
+  padding:0 2rpx;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.userCon .help_center image{
+  width:32rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

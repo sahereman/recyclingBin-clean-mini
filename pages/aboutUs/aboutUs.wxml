@@ -1,0 +1,32 @@
+<view class="aboutUs">
+  <view class="about_con">
+    <view class="about_top">
+      <image class="logo" src="../../assets/images/aboutUs/logo.png"></image>
+      <view class="aboutW">
+        <view>工蚁回收是济南新生派环保科技有限公司自主开发，成立于2019年08月09日。公司自创立以来一直专业致力环保型推广。</view>
+        <view>经营范围包括环保，技术开发、技术咨询、技术转让、技术服务;再生物资回收。</view>
+        <view>始终坚持发扬”专业、专注”为企业宗旨,以”技术、服务为立业之本的团体精神,并形成一完整的服务体系。</view>
+      </view>
+      <view class="_time">2020年9月30日
+        <button plain class="share_btn" open-type='share'>去分享
+          <image src="../../assets/images/aboutUs/share_go.png"></image>
+        </button>
+      </view>
+    </view>
+    <view class="contactUs">
+      <view class="com_title">
+        <image src="../../assets/images/home/username_sign.png"></image>联系我们
+      </view>
+      <view class="contact_con">合作电话：19283875757</view>
+      <view class="contact_con">微信公众号：工蚁回收</view>
+      <view class="joinUs">
+        <image src="../../assets/images/aboutUs/join_us.png"></image>
+        <view>长按识别，关注最新动态</view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+      <image src="../../assets/images/aboutUs/footer_icon.png"></image>
+      <view>携手助力环保，共同打造智慧社区！</view>
+  </view>
+</view>

@@ -1,0 +1,93 @@
+page{
+  background:#F3F4F6;
+}
+view{
+  box-sizing:border-box;
+}
+.help_center{
+  padding:38rpx 36rpx;
+}
+.com_title{
+  padding-left:26rpx;
+  display: flex;
+  font-size: 34rpx;
+  color: #222;
+  line-height: 48rpx;
+  align-items: center;
+}
+.com_title image {
+  width: 18rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.help_con{
+  padding-top:18rpx;
+}
+.help_con .help_item{
+  background:#fff;
+  border-radius:16rpx;
+  padding:42rpx 32rpx;
+  position:relative;
+  margin-bottom:20rpx;
+}
+.help_con .help_item ._ques{
+  width:580rpx;
+  color:#222;
+  line-height:44rpx;
+  font-size:32rpx;
+  padding-bottom:14rpx;
+}
+.help_con .help_item image{
+  position:absolute;
+  right:32rpx;
+  width: 32rpx;
+  top:50rpx;
+}
+
+.help_con .help_item ._ans{
+  line-height:40rpx;
+  font-size:28rpx;
+  color:#666;
+  text-align:justify;
+  border-top:1px solid #F1F1F1;
+  padding-top:16rpx;
+  display:none;
+}
+.help_con .help_item.cur ._ans{
+  display:block;
+}
+
+.floatpart{
+  position:fixed;
+  right:0;
+  bottom: 166rpx;
+  width:152rpx;
+}
+.floatpart image{
+  width:152rpx;
+  height:152rpx;
+}
+.floatpart button{
+  width:152rpx;
+  height:152rpx;
+  position:relative;
+  border:0;
+  background:none;
+  outline:none;
+}
+.floatpart button image{
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+
+
+
+
+
+
+
+
+

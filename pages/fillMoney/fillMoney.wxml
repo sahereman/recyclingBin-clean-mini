@@ -1,0 +1,14 @@
+<view class="fillMoney">
+  <view class="fill_con">
+    <view class="_bt">充值金额</view>
+    <view class="fill_part">
+      <image src="../../assets/images/my/money_icon.png"  mode='widthFix'></image>
+      <view class="line" wx:if="{{!fillNum}}"></view>
+      <input focus value="{{fillNum}}" adjust-position="{{false}}" type="number" bindinput="getFillVal" placeholder-class="no_con" placeholder="请输入金额"></input>
+    </view>
+    <view class="choseNum">
+      <view class="_item {{currentIndex==index?'cur':''}}" bindtap="choseNum" data-num="{{item}}" data-index="{{index}}" wx:for="{{choseNum}}" wx:key="index">￥ {{item}}</view>
+    </view>
+    <view class="nextSetp {{isnext?'_next':''}}">下一步</view>
+  </view>
+</view>

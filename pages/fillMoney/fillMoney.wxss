@@ -1,0 +1,97 @@
+page{
+  background:#F3F4F6;
+}
+view{
+  box-sizing:border-box;
+}
+.fillMoney{
+  padding:20rpx 34rpx 0 36rpx;
+}
+
+.fillMoney .fill_con{
+  padding:52rpx 20rpx 16rpx 20rpx;
+  background:#fff;
+  border-radius:16rpx;
+}
+
+.fillMoney .fill_con ._bt{
+  color:#666;
+  font-size:32rpx;
+  line-height:44rpx;
+  margin-bottom:26rpx;
+}
+
+.fillMoney .fill_con .fill_part{
+  border-bottom:1px solid #49C8B3;
+  padding:12rpx 4rpx;
+  display:flex;
+  align-items:center;
+}
+.fillMoney .fill_part image{
+  width:64rpx;
+}
+.fillMoney .fill_part .line{
+  width:4rpx;
+  height:44rpx;
+  background:#05B497;
+}
+.fillMoney .fill_part .no_con{
+  color:#AAAAAA;
+  font-size:30rpx;
+  line-height:42rpx;
+}
+.fillMoney .fill_part input{
+  padding-left:20rpx;
+  color:#000;
+  font-size:56rpx;
+  height:100%;
+  font-weight:bold;
+}
+
+.fillMoney .choseNum{
+  padding-top:20rpx;
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:40rpx;
+}
+.fillMoney .choseNum ._item{
+  width:200rpx;
+  height:80rpx;
+  text-align:center;
+  line-height:80rpx;
+  color:#222;
+  font-size:34rpx;
+  border:1px solid #EEEEEE;
+  border-radius:8rpx;
+}
+.fillMoney .choseNum ._item.cur{
+  border:4rpx solid #00B395;
+  color:#00B395;
+}
+.fillMoney .nextSetp{
+  width:640rpx;
+  height:100rpx;
+  background:#9FE5D7;
+  border-radius:50rpx;
+  text-align:center;
+  line-height:100rpx;
+  color:#fff;
+  font-size:34rpx;
+  margin-bottom:22rpx;
+}
+.fillMoney .nextSetp._next{
+  background:#0CBC9D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

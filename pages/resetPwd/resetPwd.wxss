@@ -1,33 +1,52 @@
-.form-area {
-  margin-top: 23rpx;
-  margin-bottom: 24rpx;
-  background: #fff;
-  box-shadow: 0px 1px 24px 0px rgba(240, 240, 240, 0.75);
+page,.container{
+  background:#F3F4F6;
 }
-
-.form-area view {
+view{
+  box-sizing:border-box;
+}
+.reset_page{
+  padding:60rpx 54rpx 0 56rpx;
+}
+.reset_page .withdraw{
+  background:#fff;
+  padding:66rpx 42rpx 64rpx 38rpx;
+  border-radius:16rpx;
+}
+.reset_page .form-area{
+  margin-bottom:44rpx;
+}
+.form-area .reset_item {
   display: flex;
   width: 100%;
-  height: 74rpx;
+  height: 84rpx;
   border: 0;
-  border-bottom: 2px solid #f7f7f7;
-  line-height: 74rpx;
+  border-bottom: 1px solid #F1F1F1;
+  line-height: 84rpx;
   color: #707070;
+  padding-top:16rpx;
+  align-items:center;
+  position:relative;
 }
 
-.form-area view text {
-  width: 113rpx;
-  margin-left: 27rpx;
-  font-weight: bold;
+.form-area .reset_item text {
+  font-size:32rpx;
+  color:#222;
+  width: 120rpx;
+  display:inline-block;
+  text-align: justify;
 }
 
 .form-area view input {
-  margin: auto;
-  margin-right: 26rpx;
-  text-align: right;
-  width: 450rpx;
+  text-align: left;
+  width:308rpx;
+  color:#222;
+  font-size:32rpx;
 }
-
+.form-area view .no_con{
+  color:#AAAAAA;
+  font-size:28rpx;
+  font-weight:500;
+}
 .form-area view .money-num {
   margin: auto;
   margin-left: 26rpx;
@@ -75,29 +94,83 @@
 
 .sub-btn {
   width: 100%;
-  height: 70rpx;
+  height: 100rpx;
   text-align: center;
-  background: #42c884;
-  color: #d9f4e6;
-  line-height: 70rpx;
-  font-size: 16px;
+  color: #fff;
+  line-height:100rpx;
+  font-size:34rpx;
   border-radius: 8rpx;
+  border:0;
+  position:relative;
+  outline:none;
+  background:none;
 }
-
+.sub-btn image{
+  position:absolute;
+  left:-0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:#fff;
+  z-index:0;
+}
+.sub-btn image{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:#fff;
+  z-index:0;
+}
+.sub-btn text{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index:3;
+  display:block;
+  background:rgba(255,255,255,0.6)
+}
+.finished.sub-btn text{
+  background:rgba(255,255,255,0)
+}
+.sub-btn button{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  z-index:5;
+  opacity:0;
+}
+button::after{display:none}
 /* 获取验证码 */
 
 .form-area .security {
-  background: #42c884;
-  color: #ffff;
-  width: 220rpx;
+  background: #E1FAF6;
+  color: #00B395;
+  width: 200rpx;
+  height:56rpx;
+  line-height:56rpx;
   text-align:center;
   display:block;
+  border-radius:32rpx;
 }
 
 /* 获取验证码 */
-.form-area image.right_finish{
-  width: 34rpx;
-  height: 34rpx;
-  margin: auto 0;
-  margin-right: 24rpx;
+.form-area image.right_eye{
+  width: 40rpx;
+  height: 40rpx;
+  position:absolute;
+  right:22rpx;
+  top:25rpx;
+
+}
+.reset_page .withdraw ._tip{
+  font-size:28rpx;
+  line-height:40rpx;
+  color:#AAAAAA;
+  padding:20rpx 0 0 15rpx;
 }

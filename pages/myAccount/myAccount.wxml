@@ -1,0 +1,35 @@
+<view class="setting_page my_account">
+  <view class="top_accountt">
+
+    <view class="cir_bg">
+      <image class="_bannner" src="../../assets/images/home/money_bg.png" mode='widthFix'></image>
+      <view class="bd_con">
+        <view class="_number">70.88</view>
+        <view class="_unit">余额（元）
+          <image class="go_my_money" src="../../assets/images/home/go_my_money.png" />
+        </view>
+        <view class="_unit">可用余额：0.00  <text></text> 冻结金额：0.00</view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="setting_nav">
+    <navigator class="setting_item" url="../../pages/resetPwd/resetPwd" hover-class="none">
+      <image class="_icon" src="../../assets/images/my/account_icon1.png" mode='widthFix'></image>
+      充值
+      <image class="go_page" src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/aboutUs/aboutUs" hover-class="none">
+    <image class="_icon" src="../../assets/images/my/account_icon2.png" mode='widthFix'></image>
+      提现
+      <image class="go_page" src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+    <navigator class="setting_item" url="../../pages/myOrder/myOrder" hover-class="none">
+    <image class="_icon" src="../../assets/images/my/account_icon3.png" mode='widthFix'></image>
+      账单
+      <image class="go_page" src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+page{
+  background:#F3F4F6;
+}
+view{
+  box-sizing:border-box;
+}
+.myOrder{
+  padding:20rpx 34rpx 0 36rpx;
+}
+.myOrder .order_item{
+  padding:40rpx;
+  background:#fff;
+  border-radius:16rpx;
+  margin-bottom:10rpx;
+  display:flex;
+  justify-content:space-between;
+}
+.order_item ._left ._bt{
+  font-size:34rpx;
+  color:#222;
+  line-height:48rpx;
+  margin-bottom:8rpx;
+}
+.order_item ._left ._bd{
+  font-size:24rpx;
+  color:#888;
+  line-height:34rpx;
+}
+.order_item ._right{
+  font-size:56rpx;
+  color:#000;
+  line-height:90rpx;
+}
+.order_item ._right._green{
+  color:#00B395;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

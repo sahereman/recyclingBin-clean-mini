@@ -61,7 +61,9 @@ page{
   text-align: center;
   box-sizing:border-box;
 }
-
+.goods_detail .goods_list ._item.fabric{
+  background: #E0F9F5;
+}
 .goods_detail .goods_list ._item image {
   width: 120rpx;
   height: 120rpx;
@@ -74,7 +76,9 @@ page{
   color: #61B9FF;
   line-height:46rpx;
 }
-
+.goods_detail ._item.fabric .desc {
+  color:#00B395
+}
 .goods_detail .goods_list ._price {
   font-size: 42rpx;
   font-weight: bold;

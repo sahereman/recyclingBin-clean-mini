@@ -17,15 +17,17 @@ Page({
   data: {
     token: '',
     closeTimerNum: true,
-    timerNum: 10,
+    timerNum: 60,
     account_true: false, //校验手机号码
     accountNum: '', //手机号
+    truePhone: '', //真实手机号
     pwd_true: '', //校验密码
     pwd: '',
-    repwd_true: false, //校验二次密码输入
-    rePwd: '',
     verification_key: '',
-    expired_at: '' //短信验证码过期时间
+    checkMsg: '', //验证码
+    expired_at: '', //短信验证码过期时间
+    isfinish: false,
+    ishidePwd:true
   },
   onShow: function() {
     var that = this;
@@ -33,11 +35,18 @@ Page({
     wx.getStorage({
       key: USERINFO,
       success(res) {
+        var reg = /^(\d{3})(\d{4})(\d{4})$/;
+        var matches = reg.exec(res.data.phone);
+        var newNum = matches[1] + ' ' + matches[2] + ' ' + matches[3];
         that.setData({
-          accountNum: res.data.phone
+          accountNum: newNum,
+          account_true: true,
+          truePhone: res.data.phone
         })
       }
     })
+
+
     if (isTokenFailure()) {
       // token有效
       that.data.token = token;
@@ -64,20 +73,47 @@ Page({
 
   },
   onPullDownRefresh() { //下拉刷新
-    
+
+  },
+  changeShowPwd:function(){//展示或隐藏密码
+    var that = this;
+    var temp = that.data.ishidePwd;
+    that.setData({
+      ishidePwd: !temp
+    })
   },
   getAccountVal: function(e) {
     var that = this;
-    var temp = that.data.account_true
-    if (isPoneAvailable(e.detail.value)) {
+    var tell = e.detail.value;
+    var temp = that.data.account_true;
+    var truePhone = tell.replace(/\s*/g, "");
+    if (isPoneAvailable(truePhone)) {
       temp = true;
     } else {
       temp = false;
     }
-    that.setData({
-      account_true: temp,
-      accountNum: e.detail.value
-    })
+
+    if (tell.length == 3 || tell.length == 8) {
+      if (tell.length > that.data.accountNum.length) {
+        tell = tell + " "
+      }
+    }
+    if (that.data.pwd_true && that.data.checkMsg && temp) {
+      that.setData({
+        account_true: temp,
+        accountNum: tell,
+        truePhone: truePhone,
+        isfinish:true
+      })
+    } else {
+      that.setData({
+        account_true: temp,
+        accountNum: tell,
+        truePhone: truePhone,
+        isfinish: false
+      })
+    }
+
   },
   // 获取验证码
   _sendVerification() {
@@ -85,7 +121,7 @@ Page({
     if (that.data.account_true == true) {
       const requestData = {
         token: that.data.token,
-        phone: that.data.accountNum
+        phone: that.data.truePhone
       }
       that.setData({
         closeTimerNum: false
@@ -139,54 +175,50 @@ Page({
   },
   getPwdVal: function(e) { //校验密码
     var that = this;
-    var temp = that.data.pwd_true;
-    var temp2 = that.data.repwd_true;
-    if (e.detail.value.length >= 6 && e.detail.value.length < 20) {
-      temp = true;
-      if (e.detail.value == that.data.rePwd){
-        temp2 = true;
-      }else{
-        temp2 = false;
-      }
+    var temp = that.checkPwd(e.detail.value);
+    if (temp && that.data.checkMsg && that.data.account_true) {
+      that.setData({
+        pwd_true: temp,
+        pwd: e.detail.value,
+        isfinish: true
+      })
     } else {
-      temp = false;
+      that.setData({
+        pwd_true: temp,
+        pwd: e.detail.value,
+        isfinish: false
+      })
     }
-    that.setData({
-      pwd_true: temp,
-      pwd: e.detail.value,
-      repwd_true:temp2
-    })
   },
-  getrePwdVal: function (e){//校验二次密码
-    var that = this;
-    var temp = that.data.repwd_true;
-    if (e.detail.value.length >= 6 && e.detail.value.length < 20 && e.detail.value == that.data.pwd) {
-      temp = true;
+  getMsgVal: function(e) { //验证码
+  var that = this;
+    if (that.data.pwd_true && e.detail.value && that.data.account_true) {
+      that.setData({
+        checkMsg: e.detail.value,
+        isfinish: true
+      })
     } else {
-      temp = false;
+      that.setData({
+        checkMsg: e.detail.value,
+        isfinish: false
+      })
     }
-    that.setData({
-      repwd_true: temp,
-      rePwd: e.detail.value
-    })
   },
-  formSubmit(e) {//修改密码
+  formSubmit(e) { //修改密码
     var that = this;
-    console.log(e.detail.value);
-    // if (!that.data.account_true) {
-    //   wx.showToast({
-    //     title: '请输入11位正确手机号',
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    // } else 
-    if (!that.data.verification_key) {
+    if (!that.data.account_true) {
+      wx.showToast({
+        title: '请输入11位正确手机号',
+        icon: 'none',
+        duration: 2000
+      })
+    } else if (!that.data.verification_key) {
       wx.showToast({
         title: '请先获取验证码',
         icon: 'none',
         duration: 2000
       })
-    } else if (!e.detail.value.msgNum){
+    } else if (!e.detail.value.msgNum) {
       wx.showToast({
         title: '验证码不能为空',
         icon: 'none',
@@ -194,23 +226,17 @@ Page({
       })
     } else if (!that.data.pwd_true) {
       wx.showToast({
-        title: '请输入6~20位密码',
+        title: '请输入6-16位数字字母组合密码',
         icon: 'none',
         duration: 2000
       })
-    } else if (!that.data.repwd_true) {
-      wx.showToast({
-        title: '两次密码不一致',
-        icon: 'none',
-        duration: 2000
-      })
-    }else{
+    } else {
       var requestData = {
-        phone: that.data.accountNum,
+        phone: that.data.truePhone,
         verification_key: that.data.verification_key,
         verification_code: e.detail.value.msgNum,
         password: e.detail.value.pwd,
-        password_confirmation: e.detail.value.rePwd
+        password_confirmation: e.detail.value.pwd
       }
       resetPwd(requestData).then(res => {
         console.log(res);
@@ -231,6 +257,15 @@ Page({
       }).catch(res => {
         console.log(res);
       })
+    }
+  },
+  checkPwd: function(pwd) {
+    var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/
+    var re = new RegExp(reg)
+    if (re.test(pwd)) {
+      return true;
+    } else {
+      return false;
     }
   }
 })

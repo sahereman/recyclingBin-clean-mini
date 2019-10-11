@@ -1,31 +1,31 @@
 <!--提现-->
-<view class="container">
-  <view class="withdraw-content container-inner withdraw">
+<view class="container reset_page">
+  <view class="withdraw-content withdraw">
     <form bindsubmit="formSubmit">
       <view class="form-area">
-        <view>
-          <text>手机号</text>
-          <input name="account" disabled value="{{accountNum}}" type="number" bindinput="getAccountVal" placeholder-class="placeholder-class"  placeholder="请输入手机号" />
-          <image class="right_finish" wx:if="{{account_true}}" src="../../assets/images/temp/right_finish.png" />
+        <view class="reset_item">
+          <text decode="{{true}}">账&ensp;&ensp;号</text>
+          <input name="account"  maxlength="13" value="{{accountNum}}" type="number" bindinput="getAccountVal" placeholder-class="no_con"  placeholder="请输入手机号" />
         </view>
-        <view>
+        <view class="reset_item">
           <text>验证码</text>
-          <input name="msgNum" type="number" placeholder-class="placeholder-class" placeholder="请输入短信验证码" />
+          <input name="msgNum" type="number" placeholder-class="no_con" bindinput="getMsgVal" style="width:250rpx;" placeholder="请输入短信验证码" />
           <view class="security" wx:if="{{closeTimerNum}}" bindtap="_sendVerification">获取验证码</view>
           <view class="security" wx:else>{{timerNum}}</view>
         </view>
-        <view>
-          <text>密码</text>
-          <input bindinput="getPwdVal" password name="pwd" placeholder-class="placeholder-class" placeholder="请输入密码" />
-          <image class="right_finish" wx:if="{{pwd_true}}" src="../../assets/images/temp/right_finish.png" />
-        </view>
-        <view>
-          <text style="width:150rpx;">确认密码</text>
-          <input password bindinput="getrePwdVal" name="rePwd" placeholder-class="placeholder-class" placeholder="请再次输入密码" />
-          <image class="right_finish" wx:if="{{repwd_true}}" src="../../assets/images/temp/right_finish.png" />
+        <view class="reset_item">
+          <text>新密码</text>
+          <input maxlength="16" bindinput="getPwdVal" password="{{ishidePwd}}" name="pwd" placeholder-class="no_con" placeholder="6-16位数字字母组合" />
+          <image class="right_eye" bindtap="changeShowPwd" wx:if="{{ishidePwd}}" src="../../assets/images/my/hide_pwd.png" />
+          <image class="right_eye" bindtap="changeShowPwd" wx:else src="../../assets/images/my/show_pwd.png" />
         </view>
       </view>
-      <button class="sub-btn" formType="submit">确认修改</button>
+      <view class="sub-btn {{isfinish?'finished':''}}">
+        <button formType="submit" wx:if="{{isfinish}}"></button>
+        <text decode="{{true}}">完&ensp;成</text>
+        <image class="btn_bg" src="../../assets/images/my/btn_bg.png"></image>
+      </view>
+      <view class="_tip">开机箱密码将同步更改</view>
     </form>
   </view>
 </view>

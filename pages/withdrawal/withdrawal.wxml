@@ -1,0 +1,34 @@
+<view class="fillMoney">
+  <view class="fill_con">
+    <view class="_bt">提现金额</view>
+    <view class="fill_part">
+      <image src="../../assets/images/my/money_icon.png" mode='widthFix'></image>
+      <view class="line" wx:if="{{!fillNum}}"></view>
+      <input focus value="{{fillNum}}" adjust-position="{{false}}" type="number" bindinput="getFillVal" placeholder-class="no_con" placeholder="可提现金额 ¥70.88"></input>
+      <view class="_all">全部</view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="form-area">
+        <view class="form_item">
+          <text>户名</text>
+          <input name="name" placeholder-class="no_con" placeholder="请输入收款人户名" />
+        </view>
+        <view class="form_item">
+          <text>账号</text>
+          <input name="account" type="number" placeholder-class="no_con" placeholder="请输入收款人账号" />
+          <image wx:if="{{image_show}}" src="../../assets/images/user/right_finish.png" />
+        </view>
+        <view class="form_item">
+          <text>银行</text>
+          <input name="bank" placeholder-class="no_con" placeholder="请输入银行名称" />
+        </view>
+        <view class="form_item">
+          <text style="width:150rpx;">开户银行</text>
+          <input name="bankname" placeholder-class="no_con" placeholder="请输入开户银行" />
+        </view>
+      </view>
+       <button wx:if="{{isnext}}" class="nextSetp _next" formType="submit">确认提现</button>
+      <view wx:else="{{!isnext}}" class="nextSetp">确认提现</view>
+    </form>
+  </view>
+</view>

@@ -7,6 +7,8 @@ import { TOKEN,USERINFO,VALIDTIME } from '../../common/const.js'
 Page({
   data: {
     motto: 'Hello World',
+    avatar_url:'',
+    username:'',
     userInfo: {},
     token:'',
     hasUserInfo: false,
@@ -22,8 +24,8 @@ Page({
     var that = this;
     if (isTokenFailure()) {
       // token有效
-      that.data.token = token;
       that.setData({
+        token: token,
         showModal: false,
         userinfo: userinfo
       })
@@ -48,22 +50,11 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    // if (app.globalData.userInfo) {
-    //   that.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     showModal: false
-    //   })
-    // }else {
-    //  that.setData({
-    //    showModal:true
-    //  })
-    // }
-
   },
   _getData:function(){
     this.getUserMsg();
   },
-  getUserMsg:function(){//获取回收员信息
+  getUserMsg: function (){//获取回收员信息
     var that = this;
     var requestData = {
       token: that.data.token
@@ -71,12 +62,14 @@ Page({
     userInfoShow(requestData).then(res => {
       console.log(res);
       if (res.statusCode == 200) {
+        that.setData({
+          userInfo: res.data,
+          avatar_url: res.data.avatar_url,
+          username: res.data.name
+        })
         wx.setStorage({
           key: USERINFO,
           data: res.data
-        })
-        that.setData({
-          userInfo: res.data
         })
       } else {
         wx.showToast({
@@ -144,11 +137,12 @@ Page({
           // token和有效期存入缓存
           wx.setStorageSync(TOKEN, token)
           examineToken(validTime);
-          this._getData();
+          
           that.setData({
             showModal: false,
             token: token
           })
+          this.getUserMsg();
         }else{
           wx.showToast({
             title:'登陆失败，请稍后重试',

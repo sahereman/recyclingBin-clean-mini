@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
 Page({

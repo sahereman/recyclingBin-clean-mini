@@ -5,9 +5,21 @@ import { updateToken, getMyMachine } from '../../service/api/user.js'
 Page({
   data: {
     token: '',
-    page: 1,
     orderLists: [],
-    total_pages: 1//总页数
+    machineData:[],
+    currentIndex:0,
+    tabData:[
+      {
+        name:'全部'
+      },
+      {
+        name: '正常'
+      },
+      {
+        name: '满箱'
+      }
+    ],
+    isFixed:false//导航栏是否浮动
   },
   onShow: function () {
     var that = this;
@@ -31,7 +43,7 @@ Page({
     }
   },
   onLoad: function (options) {
-
+ 
   },
   // 网络请求
   _getData() {
@@ -44,10 +56,10 @@ Page({
     }
     getMyMachine(params).then(res => {
       wx.stopPullDownRefresh();
-      console.log(res.data.data);
       if (res.statusCode == 200) {
         that.setData({
-          orderLists: res.data.data
+          orderLists: res.data.data,
+          machineData: res.data.data
         })
       }
     })
@@ -59,8 +71,48 @@ Page({
     })
     that.getOrderList();
   },
-  onReachBottom: function () {
+  changeList:function(e){//tab切换
+    console.log(e.currentTarget.dataset.index);
+    var index = e.currentTarget.dataset.index;
     var that = this;
-    that.getOrderList();
+    var temp = [];
+    var orderLists = that.data.orderLists;
+    if(index == 0){
+      temp = orderLists;
+    }else if(index == 1){
+      for (var i = 0; i < orderLists.length; i++) {
+        if (orderLists[i].type_fabric.status == 'normal' && orderLists[i].type_paper.status == 'normal') {
+          temp.push(orderLists[i])
+        }
+      }
+    } else if (index == 2) {
+      for (var i = 0; i < orderLists.length; i++) {
+        if (orderLists[i].type_fabric.status == 'full' || orderLists[i].type_paper.status == 'full') {
+          temp.push(orderLists[i])
+        }
+      }
+    }
+    
+    that.setData({
+      currentIndex: e.currentTarget.dataset.index,
+      machineData: temp
+    })
+  },
+  onPageScroll:function(res){
+    var that = this;
+    var isFixed = that.data.isFixed;
+    const query = wx.createSelectorQuery()
+    query.select('#banner_part').boundingClientRect()
+    query.exec(function (rel) {
+      if (res.scrollTop > rel[0].height && isFixed == false) {
+        that.setData({
+          isFixed:true
+        })
+      } else if (res.scrollTop < rel[0].height && isFixed == true){
+        that.setData({
+          isFixed: false
+        })
+      }
+    }) 
   }
 })

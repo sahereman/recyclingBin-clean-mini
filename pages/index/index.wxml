@@ -1,14 +1,15 @@
 <!--index.wxml-->
 <view class="container home_page">
   <view class="userPart clearfix">
-    <view class="user_msg">
-      <image class="head_img" wx:if="{{userinfo.avatar_url}}" src="{{userinfo.avatar_url}}" />
-      <image class="head_img" wx:else src="../../assets/images/home/temp_headimg.jpg" />
+    <view class="user_msg" wx:if="{{!avatar_url}}">
+      <image class="head_img" src="../../assets/images/home/temp_headimg.jpg" />
       <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
-      <view class="user_name cutWord">
-        <block wx:if="{{userinfo.name}}">{{userinfo.name}}</block>
-        <block wx:else>用户名</block>
-      </view>
+      <view class="user_name cutWord">用户名</view>
+    </view>
+    <view class="user_msg" wx:else>
+      <image class="head_img" src="{{avatar_url}}" />
+      <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
+      <view class="user_name cutWord">{{username}}</view>
     </view>
     <navigator class="user_nav" url="../../pages/setting/setting" hover-class="none">
       <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />

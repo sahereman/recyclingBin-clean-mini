@@ -31,7 +31,7 @@
   </view>
   <view wx:else class="data-empty">
     <view class="noOrder_con">
-      <image src="../../assets/images/common/nodata_bg.png"></image>
+      <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
       <view class="noorder_text">暂无记录</view>
       <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
     </view>

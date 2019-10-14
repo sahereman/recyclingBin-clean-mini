@@ -4,16 +4,22 @@
       <image src="../../assets/images/home/username_sign.png"></image>最新回收价格参考
     </view>
     <view class="goods_list">
-      <view class="_item fabric">
-        <image class="_fabric" src="../../assets/images/order/fabric_big_cion.png"></image>
-        <view class="desc">纺织物</view>
-        <view class="_price">￥1.00<text>/公斤</text></view>
+      <view class="_item {{item.slug=='fabric'?'fabric':''}}" wx:for="{{priceData}}" wx:key="{{index}}">
+        <block wx:if="{{item.slug=='fabric'}}">
+          <image class="_fabric" src="../../assets/images/order/fabric_big_cion.png"></image>
+          <view class="desc">纺织物</view>
+        </block>
+        <block wx:else>
+          <image class="_fabric" src="../../assets/images/order/recycling_big_icon.png"></image>
+          <view class="desc">可回收物</view>
+        </block>
+        <view class="_price">￥{{item.price}}<text>/{{item.unit}}</text></view>
       </view>
-      <view class="_item">
+      <!-- <view class="_item">
         <image src="../../assets/images/order/recycling_big_icon.png"></image>
         <view class="desc">可回收物</view>
         <view class="_price">￥2.00<text>/公斤</text></view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="footer">

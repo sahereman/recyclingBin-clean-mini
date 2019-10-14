@@ -1,49 +1,57 @@
-<view class="container">
-  <view class="orderLists container-inner">
-    <view wx:if="{{orderLists.length}}">
-      <block wx:for="{{orderLists}}" wx:key="{{index}}">
-        <view class="order-list">
-          <view class="list-time-status">
-            <view class="list-time">{{item.name}}</view>
-            <!-- <view class="list-status">{{item.status_text}}</view> -->
-            <view class="list-total">{{item.address}}
-              <text>编号：{{item.no}}</text>
-            </view>
-          </view>
-          <view class="list-localtion">
-            <!-- <view class="circle"></view> -->
-            <view class="list-location-text">{{item.bin_name}}</view>
-          </view>
-          <view class="list-info">
-            <!-- <block wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="childItem" wx:key="{{idx}}">
-              
-            </block> -->
-            <view class="child_list">
-              <view class="type-name">{{item.type_fabric.name}}</view>
-              <view class="type-weight">{{item.type_fabric.number}}{{item.type_fabric.unit}}</view>
-              <view class="type-price">
-                <image class="price-image" src="../../assets/images/temp/dollar_icon.png" />
-                <text>{{item.type_fabric.status_text}}</text>
-              </view>
-            </view>
-            <view class="child_list">
-              <view class="type-name">{{item.type_paper.name}}</view>
-              <view class="type-weight">{{item.type_paper.number}}{{item.type_paper.unit}}</view>
-              <view class="type-price">
-                <image class="price-image" src="../../assets/images/temp/dollar_icon.png" />
-                <text>{{item.type_paper.status_text}}</text>
-              </view>
-            </view>
-          </view>
-
+<view class="myMachine">
+  <view id="banner_part" class="banner_part">
+    <image src="../../assets/images/my/banner_machine.png" mode='widthFix'></image>
+    <navigator class="_go_price_btn" url="../../pages/priceInstructions/priceInstructions" hover-class="none">价格参考表
+      <image class="go_price" src="../../assets/images/my/go_price.png"></image>
+    </navigator>
+  </view>
+  <view class="orderLists">
+    <view class="m_tab {{isFixed?'_float':''}}">
+      <view class="_tab {{currentIndex==index?'cur':''}}" bindtap="changeList" data-index="{{index}}" wx:for="{{tabData}}" wx:key="{{index}}">{{item.name}}</view>
+    </view>
+    <view wx:if="{{machineData.length}}">
+      <view class="m_list" wx:for="{{machineData}}" wx:key="{{index}}">
+        <view class="_bt">
+          <view class="_no">{{item.no}}</view>
+          <view class="_name">{{item.name}}</view>
+          <view class="_ad">{{item.site.county}}{{item.site.province}}{{item.site.city}}{{item.address}}</view>
         </view>
+        <view class="_con">
+          <view class='_item'>
+            <view class="_name">纺织物
+              <image wx:if="{{item.type_fabric.status=='full'}}" src="../../assets/images/my/full_sign.png" mode='widthFix'></image>
+              <image wx:if="{{item.type_fabric.status=='repair'}}" src="../../assets/images/my/repair_sign.png" mode='widthFix'></image>
+            </view>
+            <view class="_num">{{item.type_fabric.number}}{{item.type_fabric.unit}}</view>
+            <view class="_acount">￥40</view>
+          </view>
+          <view class='_item'>
+            <view class="_name">可回收物
+              <image wx:if="{{item.type_paper.status=='full'}}" src="../../assets/images/my/full_sign.png" mode='widthFix'></image>
+              <image wx:if="{{item.type_paper.status=='repair'}}" src="../../assets/images/my/repair_sign.png" mode='widthFix'></image>
+            </view>
+            <view class="_num">{{item.type_paper.number}}{{item.type_paper.unit}}</view>
+            <view class="_acount">￥30.00</view>
+          </view>
+        </view>
+        <view class="_bot">
+          <view class="_time">运行时间：06:00-24:00</view>
+          <view class="_add">合计：
+            <text>¥ 70.00</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- <block wx:for="{{orderLists}}" wx:key="{{index}}">
+        
       </block>
-      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view>
+      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view> -->
     </view>
     <view wx:else class="data-empty">
       <view class="noOrder_con">
-        <image src="../../assets/images/temp/no_order.jpg"></image>
+        <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
         <view class="noorder_text">暂无记录</view>
+        <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
       </view>
     </view>
   </view>

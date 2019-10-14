@@ -1,0 +1,94 @@
+view{
+  box-sizing:border-box;
+}
+.roadmap{
+  height:100%;
+  overflow:hidden;
+}
+
+.mapTip{
+  position:fixed;
+  left:14rpx;
+  bottom:22rpx;
+  width:720rpx;
+  height:300rpx;
+  background:#fff;
+  border-radius:16rpx;
+  z-index:999;
+  overflow:visible;
+}
+.mapTip .guide_sign{
+  width:128rpx;
+  height:128rpx;
+  background:#fff;
+  border-radius:50%;
+  position:absolute;
+  right:90rpx;
+  top:-42rpx;
+}
+.mapTip ._bt{
+  position:absolute;
+  left:32rpx;
+  top: 36rpx;
+  line-height:44rpx;
+  font-size:30rpx;
+  color:#222;
+}
+
+.mapTip .box_sign{
+  position:absolute;
+  left:32rpx;
+  top: 120rpx;
+  width:80rpx;
+  height:82rpx;
+}
+.mapTip .go_route{
+  position:absolute;
+  right:38rpx;
+  top: 148rpx;
+  width:32rpx;
+  height:34rpx;
+}
+.mapTip ._no{
+  position:absolute;
+  left:122rpx;
+  top: 114rpx;
+  line-height:34rpx;
+  font-size:24rpx;
+  color:#222;
+}
+.mapTip ._name{
+  position:absolute;
+  left:122rpx;
+  top: 152rpx;
+  line-height:48rpx;
+  font-size:34rpx;
+  color:#222;
+  width:500rpx;
+}
+.mapTip ._ad{
+  position:absolute;
+  left:32rpx;
+  top: 210rpx;
+  line-height:40rpx;
+  font-size:28rpx;
+  color:#666;
+  width:680rpx;
+  box-sizing:border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

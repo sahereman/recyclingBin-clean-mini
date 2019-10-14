@@ -1,12 +1,14 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/roadMap/roadMap",
+    "pages/myMachine/myMachine",
+    "pages/priceInstructions/priceInstructions",
     "pages/withdrawal/withdrawal",
     "pages/fillMoney/fillMoney",
     "pages/myOrder/myOrder",
     "pages/myAccount/myAccount",
     "pages/resetPwd/resetPwd",
-    "pages/priceInstructions/priceInstructions",
-    "pages/index/index",
     "pages/message/message",
     "pages/aboutUs/aboutUs",
     "pages/setting/setting",
@@ -14,8 +16,7 @@
     "pages/userCenter/userCenter",
     "pages/order/order",
     "pages/orderDetail/orderDetail",
-    "pages/recoveryPrice/recoveryPrice",
-    "pages/myMachine/myMachine"
+    "pages/recoveryPrice/recoveryPrice"
   ],
   "permission": {
     "scope.userLocation": {

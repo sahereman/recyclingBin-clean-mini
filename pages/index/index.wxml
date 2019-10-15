@@ -15,105 +15,59 @@
       <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
       <view>设置</view>
     </navigator>
-    <navigator class="user_nav" url="../../pages/setting/setting" hover-class="none">
-     <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
-      <view class="new_tip"></view>
-      <view>消息</view>
-    </navigator>
-    <!-- <view class="user_nav">
-      <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
-      <view>设置</view>
-    </view>
-    <view class="user_nav">
+    <navigator class="user_nav" url="../../pages/message/message" hover-class="none">
       <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
       <view class="new_tip"></view>
       <view>消息</view>
-    </view> -->
+    </navigator>
   </view>
   <!-- 账户余额 -->
   <view class='myMoney'>
-    <image class="money_bg" src="../../assets/images/home/money_bg.png" />
-    <view class="bd_con">
-      <view class="_number">70.88</view>
-      <view class="_unit">余额（元）
-        <image class="go_my_money" src="../../assets/images/home/go_my_money.png" />
+    <navigator class="user_nav" url="../../pages/myAccount/myAccount" hover-class="none">
+      <image class="money_bg" src="../../assets/images/home/money_bg.png" />
+      <view class="bd_con">
+        <view class="_number">{{userInfo.money}}</view>
+        <view class="_unit">余额（元）
+          <image class="go_my_money" src="../../assets/images/home/go_my_money.png" />
+        </view>
       </view>
-    </view>
+    </navigator>
   </view>
   <!-- 线路规划 -->
   <view class="lineRoutepart">
-    <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+    <navigator class="_go" url="../../pages/roadMap/roadMap" hover-class="none">
       <image class="line_route" mode='widthFix' src="../../assets/images/home/line_route.png" />
     </navigator>
   </view>
-
   <!-- 导航 -->
   <view class="navPart">
     <view class="line_item">
-      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+      <view class="_go" bindtap="scanGetGoods">
         <image class="line_route" src="../../assets/images/home/nav1.png" />
         <view>扫码取货</view>
-      </navigator>
-      <navigator class="_go _cur" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+      </view>
+      <navigator class="_go _cur" url="../../pages/myMachine/myMachine" hover-class="none">
         <image class="line_route" src="../../assets/images/home/nav2.png" />
         <view>我的回收机</view>
       </navigator>
-      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
-        <image class="line_route"src="../../assets/images/home/nav3.png" />
+      <navigator class="_go" open-type="switchTab" url="../../pages/order/order" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav3.png" />
         <view>回收记录</view>
       </navigator>
     </view>
     <view class="line_item no_bg">
-      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+      <navigator class="_go" open-type="switchTab" url="../../pages/userCenter/userCenter" hover-class="none">
         <image class="line_route" src="../../assets/images/home/nav4.png" />
         <view>个人资料</view>
       </navigator>
-      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
-        <image class="line_route"src="../../assets/images/home/nav5.png" />
+      <navigator class="_go" url="../../pages/helpCenter/helpCenter" hover-class="none">
+        <image class="line_route" src="../../assets/images/home/nav5.png" />
         <view>帮助中心</view>
       </navigator>
-      <navigator class="_go" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
+      <navigator class="_go" url="../../pages/aboutUs/aboutUs" hover-class="none">
         <image class="line_route" src="../../assets/images/home/nav6.png" />
         <view>关于我们</view>
       </navigator>
     </view>
   </view>
-
-
-
-  <!-- <view class="category-lists">
-    <view class="category-list-item" bindtap="getScanCode">
-      <image src="../../assets/images/temp/sweepCode.png" mode='widthFix' />
-      <text>扫码取货</text>
-    </view>
-    <navigator class="category-list-item" url="../../pages/myMachine/myMachine" hover-class="none">
-      <image src="../../assets/images/temp/recyclingClassification.png" mode='widthFix' />
-      <text>我的回收机</text>
-    </navigator>
-    <navigator class="category-list-item" url="../../pages/recoveryPrice/recoveryPrice" hover-class="none">
-       <image src="../../assets/images/temp/deliveryGuide.png" mode='widthFix' />
-      <text>回收价格</text>
-    </navigator>
-  </view> -->
-
-  <!-- 账号密码登录 -->
-  <w-dialog show="{{showModal}}">
-    <view slot="content" class='main-content'>
-      <view class="dialog_title">登陆
-        <image bindtap="hideModal" src="../../assets/images/temp/close_icon2.png" mode="widthFix"></image>
-      </view>
-      <view class="content-row">
-        <image src="../../assets/images/temp/phone_icon.png"></image>
-        <input type="number" placeholder-class="_input" value="{{inaccount}}" placeholder="请输入账号" maxlength="11" bindinput='bluraccount' />
-      </view>
-      <view class="content-row pwd_row">
-        <image src="../../assets/images/temp/pwd_icon.png"></image>
-        <input type="number" placeholder-class="_input" value="{{pwd}}" bindinput='blurpwd' placeholder="请输入密码" />
-        <!-- <view >获取验证码</view> -->
-      </view>
-    </view>
-    <view slot="operation" class="main-footer bindWxPhone">
-      <button class='confirm-btn' bindtap="loginus">立即登陆</button>
-    </view>
-  </w-dialog>
 </view>

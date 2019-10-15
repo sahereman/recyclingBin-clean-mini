@@ -1,7 +1,7 @@
 const app = getApp()
 import { examineToken, isTokenFailure } from '../../utils/util.js'
-import { TOKEN } from '../../common/const.js'
-import { updateToken, getMyOrder } from '../../service/api/user.js'
+import { TOKEN, USERINFO } from '../../common/const.js'
+import { updateToken, fillMyCount } from '../../service/api/user.js'
 Page({
   data: {
     token: '',
@@ -15,6 +15,13 @@ Page({
   onShow: function () {
     var that = this;
     const token = wx.getStorageSync(TOKEN);
+    const userinfo = wx.getStorageSync(USERINFO);
+    var that = this;
+    if (!userinfo.wx_openid) {
+      wx.reLaunch({
+        url: '../../pages/login/login'
+      })
+    }
     if (isTokenFailure()) {
       // token有效
       that.data.token = token;
@@ -28,10 +35,11 @@ Page({
       } else {
         //跳转首页 重新登陆
         wx.reLaunch({
-          url: '../../pages/index/index'
+          url: '../../pages/login/login'
         })
       }
     }
+
   },
   // 网络请求
   _getData() {
@@ -52,19 +60,51 @@ Page({
     })
   },
   getFillVal:function(e){
-    console.log(e.detail.value);
     var num = e.detail.value;
     var that = this;
     if (num){
       that.setData({
         isnext: true,
-        fillNum: num
+        fillNum: num,
+        currentIndex:-1
       })
     }else{
       that.setData({
         isnext: false,
-        fillNum: num
+        fillNum: num,
+        currentIndex:-1
       })
     }
+  },
+  goWeChatPay:function(){//充值
+    var that = this;
+    var param = {
+      token: that.data.token,
+      money: that.data.fillNum
+    }
+    fillMyCount(param).then(res => {
+      console.log(res);
+      if (res.statusCode == 200){
+        wx.requestPayment({
+          timeStamp: res.data.wx_pay.timestamp,
+          nonceStr: res.data.wx_pay.nonceStr,
+          package: res.data.wx_pay.package,
+          signType: res.data.wx_pay.signType,
+          paySign: res.data.wx_pay.paySign,
+          success(response) {
+            console.log(response);
+          },
+          fail(response) {
+            console.log(response)
+          }
+        })
+      }else{
+        wx.showToast({
+          title: res.errMsg.money[0],
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   }
 })

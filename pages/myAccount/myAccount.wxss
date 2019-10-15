@@ -62,6 +62,7 @@ view{
   font-weight:600;
   font-size:58rpx;
   line-height:80rpx;
+  text-align:left;
 }
 .top_accountt .bd_con ._unit{
   color:#fff;

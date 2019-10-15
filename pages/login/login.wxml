@@ -1,0 +1,47 @@
+<view>
+  <view slot="content" class='main-content loginPart' wx:if="{{showModal}}">
+    <view class="dialog_title">工蚁回收箱
+      <text>回收员</text>
+    </view>
+    <view class="content-row {{green_line_state==1?'green_line':''}}">
+      <view class="_label">账号</view>
+      <input type="number" cursor="{{5}}" focus placeholder-class="_input" value="{{inaccount}}" placeholder="请输入您的账号" maxlength="11" bindinput='bluraccount' bindtap="giveBotLine" data-line="{{1}}" />
+    </view>
+    <view class="content-row pwd_row {{green_line_state==2?'green_line':''}}">
+      <view class="_label">密码</view>
+      <input password="{{ishidePwd}}" bindtap="giveBotLine" data-line="{{2}}" placeholder-class="_input" value="{{pwd}}" bindinput='blurpwd' placeholder="请输入您的密码" />
+      <image class="hide_pwd" bindtap="changeShowPwd" wx:if="{{ishidePwd}}" src="../../assets/images/my/hide_pwd.png" mode='widthFix'></image>
+      <image class="hide_pwd" bindtap="changeShowPwd" wx:else src="../../assets/images/my/show_pwd.png" mode='widthFix'></image>
+    </view>
+    <view slot="operation" class="main-footer bindWxPhone">
+      <view class="btn_part">
+        <button class='confirm-btn' class="btn_bg _btn" bindtap="loginus">立即登陆</button>
+        <image class="btn_bg" src="../../assets/images/my/btn_bg.png"></image>
+        <view class="btn_bg white_bg" wx:if="{{!showBtn}}"></view>
+      </view>
+    </view>
+    <navigator class="reset_pwd" url="../../pages/resetPwd/resetPwd" hover-class="none">找回密码</navigator>
+  </view>
+  <view slot="content" class='main-content weChatPow' wx:if="{{show}}">
+    <view class="dialog_title">微信授权</view>
+    <view class="authorization_con">
+      <view class="_desc">
+        <text>申请获得以下权限</text>
+        <view class="_bg"></view>
+      </view>
+      <view class="detail_desc">
+        <view class="getYorsinfo">
+          <text>· </text> 获得你的昵称、头像、地区及性别</view>
+        <view class="infoUse">
+          <text>你的地理位置信息</text>
+          <text>将用于向您推荐附近的工蚁回收机</text>
+        </view>
+      </view>
+    </view>
+    <view slot="operation" class="main-footer btn_part">
+      <view wx:if='{{!canIUse}}' class='cancel-btn' bindtap='cancel'>请升级微信版本</view>
+      <button wx:else class='confirm-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    </view>
+  </view>
+
+</view>

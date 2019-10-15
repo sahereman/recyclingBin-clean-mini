@@ -67,8 +67,11 @@ page {
   height: 92rpx;
   line-height: 92rpx;
   border-top: 2px solid rgba(223, 223, 224, 0.4);
+  width:100%;
 }
-
+.main-footer.btn_part button{
+  background:#fff;
+}
 .main-footer.btn_part .confirm-btn {
   color: #64dda4;
   font-size: 38rpx;
@@ -137,7 +140,7 @@ page {
 
 /* 微信手机绑定 */
 
-.main-content .content-row {
+/* .main-content .content-row {
   margin: 0 30rpx;
   position: relative;
   border-bottom: 2px solid rgba(0, 0, 0, 0.03);
@@ -229,8 +232,113 @@ page {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+} */
+/* 登录 */
+.main-content .content-row {
+  position: relative;
+  border-bottom: 1px solid #F1F1F1;
+  display: flex;
+  padding-top:15rpx;
+  line-height:83rpx;
+  align-items:center;
+}
+.main-content .content-row ._label{
+  width:86rpx;
+  padding-left:9rpx;
+  font-size:32rpx;
+  color:#222;
+}
+.main-content .content-row input {
+  width:410rpx;
+  height:44rpx;
+  text-align: left;
+  line-height:44rpx;
+  padding-left:15rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.main-content .content-row.green_line input{
+  border-left:4rpx solid #05B497;
+}
+.main-content .content-row.green_line{
+  border-color:#49C8B3;
+}
+.main-content .content-row ._input{
+  color:#AAAAAA;
+  font-size:28rpx;
+}
+.main-content .content-row .hide_pwd{
+  width:40rpx;
+  position:absolute;
+  right:24rpx;
+  top:35rpx;
+}
+.loginPart{
+  padding:60rpx 38rpx 62rpx 42rpx;
 }
 
+.loginPart .dialog_title{
+  text-align:left;
+  color:#222;
+  font-size:44rpx;
+  line-height:60rpx;
+  display:flex;
+  align-items:center;
+  margin-bottom:34rpx;
+}
+.loginPart .dialog_title text{
+  display:block;
+  width:90rpx;
+  height:40rpx;
+  text-align:center;
+  line-height:40rpx;
+  color:#00B395;
+  font-size:24rpx;
+  background:#E1FAF6;
+  border-radius:8rpx;
+  margin-left:20rpx;
+}
+.main-footer.bindWxPhone {
+  padding:42rpx 0 20rpx 0;
+  width: 100%;
+}
+
+.main-footer.bindWxPhone button._btn {
+  background:transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 0;
+  outline: none;
+  margin-bottom: 23rpx;
+  height:100rpx;
+  line-height:100rpx;
+  z-index:4;
+}
+.main-footer.bindWxPhone .btn_part{
+  width:100%;
+  height:100rpx;
+  position:relative;
+}
+.main-footer.bindWxPhone .btn_bg{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+.main-footer.bindWxPhone .btn_bg.white_bg{
+  background:rgba(255,255,255,.5);
+  z-index:3;
+}
+.loginPart .reset_pwd{
+  color:#AAAAAA;
+  font-size:28rpx;
+  line-height:40rpx;
+  text-align:left;
+  padding-left:10rpx;
+}
+
+/* 登录 */
 /* 数据为空 */
 .data-empty{
   margin:39% 0 0 0;

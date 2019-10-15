@@ -59,9 +59,7 @@ Page({
         updateToken(token, that);
       } else {
         //跳转首页 重新登陆
-        wx.reLaunch({
-          url: '../../pages/index/index'
-        })
+        
       }
     }
   },

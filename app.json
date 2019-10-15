@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/withdrawal/withdrawal",
+    "pages/fillMoney/fillMoney",
+    "pages/login/login",
     "pages/roadMap/roadMap",
     "pages/myMachine/myMachine",
     "pages/priceInstructions/priceInstructions",
-    "pages/withdrawal/withdrawal",
-    "pages/fillMoney/fillMoney",
     "pages/myOrder/myOrder",
     "pages/myAccount/myAccount",
     "pages/resetPwd/resetPwd",

@@ -1,17 +1,22 @@
-//app.js
+import { isTokenFailure } from '/utils/util.js'
+import { TOKEN } from '/common/const.js'
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
+    const token = wx.getStorageSync(TOKEN);
+    if (!token && token.length == 0) {
+      // 登陆
+      this.login();
+    }
+  },
+  login() {
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: loginRes => {
+        console.log(loginRes);
+        this.globalData.code = loginRes.code
       }
     })
+  },
+  getUserInfo:function(){
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -19,6 +24,8 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              console.log("*****************************");
+              console.log(res);
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
@@ -34,6 +41,7 @@ App({
     })
   },
   globalData: {
+    code: null,
     userInfo: null,
     phoneNumber:'19283875757'
   }

@@ -4,27 +4,27 @@
     <view class="fill_part">
       <image src="../../assets/images/my/money_icon.png" mode='widthFix'></image>
       <view class="line" wx:if="{{!fillNum}}"></view>
-      <input focus value="{{fillNum}}" adjust-position="{{false}}" type="number" bindinput="getFillVal" placeholder-class="no_con" placeholder="可提现金额 ¥70.88"></input>
-      <view class="_all">全部</view>
+      <input focus value="{{fillNum}}" adjust-position="{{false}}" type="number" bindinput="getFillVal" placeholder-class="no_con" placeholder="可提现金额 ¥{{usefulMoney}}"></input>
+      <view class="_all" bindtap="giveAll">全部</view>
     </view>
     <form bindsubmit="formSubmit">
       <view class="form-area">
         <view class="form_item">
           <text>户名</text>
-          <input name="name" placeholder-class="no_con" placeholder="请输入收款人户名" />
+          <input bindinput='blurname' name="name" value="{{username}}"  placeholder-class="no_con" placeholder="请输入收款人户名" />
         </view>
         <view class="form_item">
           <text>账号</text>
-          <input name="account" type="number" placeholder-class="no_con" placeholder="请输入收款人账号" />
+          <input bindinput='bluraccount' name="account" type="number" value="{{useraccount}}" placeholder-class="no_con" placeholder="请输入收款人账号" />
           <image wx:if="{{image_show}}" src="../../assets/images/user/right_finish.png" />
         </view>
         <view class="form_item">
           <text>银行</text>
-          <input name="bank" placeholder-class="no_con" placeholder="请输入银行名称" />
+          <input bindinput='blurbank' name="bank" value="{{bankname}}" placeholder-class="no_con" placeholder="请输入银行名称" />
         </view>
         <view class="form_item">
           <text style="width:150rpx;">开户银行</text>
-          <input name="bankname" placeholder-class="no_con" placeholder="请输入开户银行" />
+          <input bindinput='blurbankAd' name="bankname" value="{{bankad}}" placeholder-class="no_con" placeholder="请输入开户银行" />
         </view>
       </view>
        <button wx:if="{{isnext}}" class="nextSetp _next" formType="submit">确认提现</button>

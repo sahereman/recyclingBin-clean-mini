@@ -1,0 +1,35 @@
+page{
+  background:#F3F4F6;
+  padding-top:60rpx;
+}
+view{
+  box-sizing:border-box;
+}
+.loginPart,.weChatPow{
+  background:#fff;
+  width:640rpx;
+  margin:0 auto;
+  border-radius:16rpx;
+}
+.weChatPow{
+  text-align:center;
+}
+.weChatPow .dialog_title{
+  line-height:55rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

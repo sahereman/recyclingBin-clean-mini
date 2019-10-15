@@ -82,6 +82,22 @@ export function userInfoShow(requestData) {
     },
   })
 }
+
+// 获取用户openid
+export function getUserOpenid(requestData) {
+  return request({
+    url: 'recyclers/wechatAuthorization',
+    method: "POST",
+    header: {
+      Authorization: requestData.token
+    },
+    data:{
+      jsCode: requestData.jsCode,
+      iv: requestData.iv,
+      encryptedData: requestData.encryptedData,
+    }
+  })
+}
 // 获取金钱账单列表
 export function getBillList(requestData) {
   return request({
@@ -99,7 +115,7 @@ export function getBillList(requestData) {
 // 用户银联提现
 export function withdrawal(requestData) {
   return request({
-    url: 'users/withdraw/unionPay',
+    url: 'recyclers/withdraw/unionPay',
     method: "POST",
     header: {
       Authorization: requestData.token
@@ -131,7 +147,7 @@ export function realAuthentication(requestData) {
 // 获取消息提醒列表
 export function getMessageData(requestData) {
   return request({
-    url: 'users/notifications?page=' + requestData.page,
+    url: 'recyclers/notifications?page=' + requestData.page,
     method: "GET",
     header: {
       Authorization: requestData.token
@@ -175,6 +191,20 @@ export function getMyOrder(requestData) {
     method: "GET",
     header: {
       Authorization: requestData.token
+    }
+  })
+}
+
+// 充值
+export function fillMyCount(requestData) {
+  return request({
+    url: 'deposits/wechat',
+    method: "POST",
+    header: {
+      Authorization: requestData.token
+    },
+    data:{
+      money: requestData.money	
     }
   })
 }

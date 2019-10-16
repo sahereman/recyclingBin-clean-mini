@@ -62,7 +62,7 @@ Page({
   getFillVal:function(e){
     var num = e.detail.value;
     var that = this;
-    if (num){
+    if (num>0){
       that.setData({
         isnext: true,
         fillNum: num,
@@ -92,10 +92,24 @@ Page({
           signType: res.data.wx_pay.signType,
           paySign: res.data.wx_pay.paySign,
           success(response) {
-            console.log(response);
+            wx.showToast({
+              title: '充值成功',
+              icon: 'success',
+              duration: 2000
+            })
+            var timer = setInterval(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+              clearInterval(timer);
+            }, 1000)
           },
           fail(response) {
-            console.log(response)
+            wx.showToast({
+              title: '充值失败,请稍后重试',
+              icon: 'none',
+              duration: 2000
+            })
           }
         })
       }else{

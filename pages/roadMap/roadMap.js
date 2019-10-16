@@ -152,5 +152,13 @@ Page({
         console.log(res);
       }
     });
-  }
+  },
+  openMapChoose() {//打开地图
+    wx.openLocation({
+      latitude: this.data.lat,
+      longitude: this.data.lng,
+      scale: 18,
+      address: '宁夏路社区，宁夏路60号，小区物业旁边'
+    })
+  },
 })

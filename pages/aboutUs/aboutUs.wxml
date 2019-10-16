@@ -17,7 +17,7 @@
       <view class="com_title">
         <image src="../../assets/images/home/username_sign.png"></image>联系我们
       </view>
-      <view class="contact_con">合作电话：19283875757</view>
+      <view class="contact_con">合作电话：{{tell}}</view>
       <view class="contact_con">微信公众号：工蚁回收</view>
       <view class="joinUs">
         <image src="../../assets/images/aboutUs/join_us.png"></image>

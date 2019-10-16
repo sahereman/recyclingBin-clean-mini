@@ -14,7 +14,7 @@ Page({
     inaccount:'',//账号
     pwd:'',//密码
     showBtn:false,
-    show:true,
+    show:false,
     ishidePwd:true,//隐藏密码
     green_line_state:1//输入键盘聚焦
   },
@@ -60,7 +60,7 @@ Page({
   },
   _getData:function(){
     var that = this;
-    if (that.data.showModal == that.data.show){
+    if (that.data.showModal == false && that.data.show == false){
       wx.reLaunch({
         url: '../../pages/index/index'
       })
@@ -143,9 +143,9 @@ Page({
           examineToken(validTime);
           that.setData({
             showModal: false,
-            token: token,
-            show:true
+            token: token
           })
+          that.getUserMsg();
         }else{
           wx.showToast({
             title:'登陆失败，请稍后重试',
@@ -179,6 +179,41 @@ Page({
       app.login()
     }
   },
+  getUserMsg: function () {//获取回收员信息
+    var that = this;
+    var requestData = {
+      token: that.data.token
+    }
+    userInfoShow(requestData).then(res => {
+      if (res.statusCode == 200) {
+        if (res.data.wx_openid){
+          that.setData({
+            userInfo: res.data,
+            avatar_url: res.data.avatar_url,
+            username: res.data.name
+          })
+          wx.setStorage({
+            key: USERINFO,
+            data: res.data
+          })
+          wx.reLaunch({
+            url: '../../pages/index/index'
+          })
+        }else{
+          that.setData({
+            show:true
+          })
+        }
+        
+      } else {
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   getOpenId: function (requestData){
     var that = this;
     const userinfo = wx.getStorageSync(USERINFO);
@@ -204,5 +239,16 @@ Page({
     that.setData({
       ishidePwd: !temp
     })
+  },
+  onPullDownRefresh() { //下拉刷新
+    this.setData({
+      userInfo: {},
+      inaccount: '',//账号
+      pwd: '',//密码
+      showBtn: false,
+      ishidePwd: true,//隐藏密码
+      green_line_state: 1//输入键盘聚焦
+    })
+    wx.stopPullDownRefresh();
   }
 })

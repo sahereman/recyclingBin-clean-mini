@@ -5,26 +5,35 @@ view{
   height:100%;
   overflow:hidden;
 }
-
-.mapTip{
+.mapTipPart{
   position:fixed;
   left:14rpx;
   bottom:22rpx;
   width:720rpx;
-  height:300rpx;
-  background:#fff;
-  border-radius:16rpx;
+  height:342rpx;
+  background:transparent;
   z-index:999;
   overflow:visible;
 }
-.mapTip .guide_sign{
+.mapTip{
+  position:absolute;
+  width:100%;
+  height:300rpx;
+  left:0;
+  top:42rpx;
+  background:#fff;
+  border-radius:16rpx;
+  z-index:1;
+}
+.mapTipPart .guide_sign{
   width:128rpx;
   height:128rpx;
   background:#fff;
   border-radius:50%;
   position:absolute;
   right:90rpx;
-  top:-42rpx;
+  top:0rpx;
+  z-index:2;
 }
 .mapTip ._bt{
   position:absolute;

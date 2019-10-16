@@ -1,5 +1,5 @@
 const app = getApp()
-import {  examineToken, isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure } from '../../utils/util.js'
 import { getTopicCategories } from '../../service/api/order.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
@@ -53,7 +53,6 @@ Page({
         page++;
         for (var i = 0; i < res.data.data.length; i++) {
           orderLists.push(res.data.data[i]);
-          console.log(res.data.data[i]);
         }
         that.setData({
           orderLists: orderLists,

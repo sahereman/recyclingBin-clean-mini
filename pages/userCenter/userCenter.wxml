@@ -3,17 +3,24 @@
     <image src="../../assets/images/my/banner.png" mode='widthFix'></image>
   </view>
   <view class="userCon">
-    <view class="_user">
+    <view class="_user" wx:if="{{username}}">
+      <image src="{{user_head}}"></image>
+      <view class="_info">
+        <view class="_name cutWord">{{username}}</view>
+        <view class="_tell">{{user_tell}}</view>
+      </view>
+    </view>
+    <view class="_user" wx:else>
       <image src="../../assets/images/home/temp_headimg.jpg"></image>
       <view class="_info">
         <view class="_name cutWord">我是一只小工蚁</view>
-        <view class="_tell">138****7656</view>
+        <view class="_tell"></view>
       </view>
     </view>
-    <view class="_time">
+    <!-- <view class="_time">
       合作有效期
       <text>2020年9月30日到期</text>
-    </view>
+    </view> -->
     <navigator class="help_center" url="../../pages/helpCenter/helpCenter" hover-class="none">
       帮助中心
       <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>

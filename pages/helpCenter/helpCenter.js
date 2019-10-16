@@ -1,5 +1,7 @@
-
 const app = getApp()
+import { isTokenFailure } from '../../utils/util.js'
+import { TOKEN } from '../../common/const.js'
+import { updateToken } from '../../service/api/user.js'
 Page({
   data: {
     helpData: [
@@ -36,7 +38,26 @@ Page({
     ]
   },
   onLoad: function (options) {
-
+    var that = this;
+    const token = wx.getStorageSync(TOKEN);
+    if (isTokenFailure()) {
+      // token有效
+      that.setData({
+        token: token
+      })
+    } else {
+      // token无效
+      if (token && token.length != 0) {
+        // 当token存在只需要进行更新
+        // 刷新token
+        updateToken(token, that);
+      } else {
+        //跳转首页 重新登陆
+        wx.reLaunch({
+          url: '../../pages/login/login'
+        })
+      }
+    }
   },
   // 网络请求
   _getData() {
@@ -59,5 +80,8 @@ Page({
     wx.makePhoneCall({
       phoneNumber: app.globalData.phoneNumber //仅为示例，并非真实的电话号码
     })
-  }
+  },
+  onPullDownRefresh() { //下拉刷新
+    wx.stopPullDownRefresh();
+  },
 })

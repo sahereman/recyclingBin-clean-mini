@@ -5,7 +5,7 @@
       <view class="form-area">
         <view class="reset_item">
           <text decode="{{true}}">账&ensp;&ensp;号</text>
-          <input name="account"  maxlength="13" value="{{accountNum}}" type="number" bindinput="getAccountVal" placeholder-class="no_con"  placeholder="请输入手机号" />
+          <input name="account" focus maxlength="11" value="{{accountNum}}" type="number" bindinput="getAccountVal" placeholder-class="no_con"  placeholder="请输入手机号" />
         </view>
         <view class="reset_item">
           <text>验证码</text>
@@ -15,7 +15,7 @@
         </view>
         <view class="reset_item">
           <text>新密码</text>
-          <input maxlength="16" bindinput="getPwdVal" password="{{ishidePwd}}" name="pwd" placeholder-class="no_con" placeholder="6-16位数字字母组合" />
+          <input maxlength="16" bindinput="getPwdVal" password="{{ishidePwd}}" name="pwd" placeholder-class="no_con" placeholder="密码不少于6位" />
           <image class="right_eye" bindtap="changeShowPwd" wx:if="{{ishidePwd}}" src="../../assets/images/my/hide_pwd.png" />
           <image class="right_eye" bindtap="changeShowPwd" wx:else src="../../assets/images/my/show_pwd.png" />
         </view>

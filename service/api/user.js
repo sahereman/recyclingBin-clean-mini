@@ -208,3 +208,14 @@ export function fillMyCount(requestData) {
     }
   })
 }
+
+// 退出登录
+export function loginOutUs(requestData) {
+  return request({
+    url: 'authorizations',
+    method: "DELETE",
+    header: {
+      Authorization: requestData.token
+    }
+  })
+}

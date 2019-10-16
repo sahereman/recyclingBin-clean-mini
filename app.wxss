@@ -256,6 +256,7 @@ page {
   padding-left:15rpx;
   box-sizing: border-box;
   position: relative;
+  border-left:4rpx solid #fff;
 }
 .main-content .content-row.green_line input{
   border-left:4rpx solid #05B497;

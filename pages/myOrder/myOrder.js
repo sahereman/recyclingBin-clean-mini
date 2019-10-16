@@ -47,6 +47,7 @@ Page({
       page: page
     }
     getMyOrder(param).then(res => {
+      console.log(res);
       wx.stopPullDownRefresh();
       if (res.statusCode == 200){
         page++;

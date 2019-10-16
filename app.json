@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/setting/setting",
     "pages/withdrawal/withdrawal",
     "pages/fillMoney/fillMoney",
     "pages/login/login",
@@ -12,7 +13,6 @@
     "pages/resetPwd/resetPwd",
     "pages/message/message",
     "pages/aboutUs/aboutUs",
-    "pages/setting/setting",
     "pages/helpCenter/helpCenter",
     "pages/userCenter/userCenter",
     "pages/order/order",

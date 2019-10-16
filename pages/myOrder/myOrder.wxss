@@ -11,7 +11,7 @@ view{
   padding:40rpx;
   background:#fff;
   border-radius:16rpx;
-  margin-bottom:10rpx;
+  margin-bottom:15rpx;
   display:flex;
   justify-content:space-between;
 }

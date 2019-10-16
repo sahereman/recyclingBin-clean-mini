@@ -39,7 +39,7 @@ Page({
         var matches = reg.exec(res.data.phone);
         var newNum = matches[1] + ' ' + matches[2] + ' ' + matches[3];
         that.setData({
-          accountNum: newNum,
+          accountNum: res.data.phone,
           account_true: true,
           truePhone: res.data.phone
         })
@@ -85,18 +85,18 @@ Page({
     var tell = e.detail.value;
     var temp = that.data.account_true;
     var truePhone = tell.replace(/\s*/g, "");
-    if (isPoneAvailable(truePhone)) {
+    if (isPoneAvailable(tell)) {
       temp = true;
     } else {
       temp = false;
     }
 
-    if (tell.length == 3 || tell.length == 8) {
-      if (tell.length > that.data.accountNum.length) {
-        tell = tell + " "
-      }
-    }
-    if (that.data.pwd_true && that.data.checkMsg && temp) {
+    // if (tell.length == 3 || tell.length == 8) {
+    //   if (tell.length > that.data.accountNum.length) {
+    //     tell = tell + " "
+    //   }
+    // }
+    if (that.data.pwd_true == true && that.data.checkMsg == true && temp == true) {
       that.setData({
         account_true: temp,
         accountNum: tell,
@@ -111,15 +111,15 @@ Page({
         isfinish: false
       })
     }
-
   },
   // 获取验证码
   _sendVerification() {
     var that = this;
     if (that.data.account_true == true) {
+      console.log(that.data.token);
       const requestData = {
         token: that.data.token,
-        phone: that.data.truePhone
+        phone: that.data.accountNum
       }
       that.setData({
         closeTimerNum: false
@@ -173,7 +173,11 @@ Page({
   },
   getPwdVal: function(e) { //校验密码
     var that = this;
-    var temp = that.checkPwd(e.detail.value);
+    //var temp = that.checkPwd(e.detail.value);
+    var temp = false;
+    if (e.detail.value.length >= 6){
+      temp = true;
+    }
     if (temp && that.data.checkMsg && that.data.account_true) {
       that.setData({
         pwd_true: temp,
@@ -230,7 +234,7 @@ Page({
       })
     } else {
       var requestData = {
-        phone: that.data.truePhone,
+        phone: that.data.accountNum,
         verification_key: that.data.verification_key,
         verification_code: e.detail.value.msgNum,
         password: e.detail.value.pwd,
@@ -244,6 +248,13 @@ Page({
             icon: 'success',
             duration: 2000
           })
+          wx.clearStorage();
+          var timer = setInterval(function () {
+            wx.reLaunch({
+              url: '../../pages/login/login'
+            })
+            clearInterval(timer);
+          }, 2000)
         } else if (res.statusCode == 422) {
           wx.showToast({
             title: res.data.errors.verification_code[0],

@@ -9,7 +9,7 @@
     </view>
     <view class="content-row pwd_row {{green_line_state==2?'green_line':''}}">
       <view class="_label">密码</view>
-      <input password="{{ishidePwd}}" bindtap="giveBotLine" data-line="{{2}}" placeholder-class="_input" value="{{pwd}}" bindinput='blurpwd' placeholder="请输入您的密码" />
+      <input password="{{ishidePwd}}" type="text" bindtap="giveBotLine" data-line="{{2}}" placeholder-class="_input" value="{{pwd}}" bindinput='blurpwd' placeholder="请输入您的密码" />
       <image class="hide_pwd" bindtap="changeShowPwd" wx:if="{{ishidePwd}}" src="../../assets/images/my/hide_pwd.png" mode='widthFix'></image>
       <image class="hide_pwd" bindtap="changeShowPwd" wx:else src="../../assets/images/my/show_pwd.png" mode='widthFix'></image>
     </view>
@@ -22,7 +22,7 @@
     </view>
     <navigator class="reset_pwd" url="../../pages/resetPwd/resetPwd" hover-class="none">找回密码</navigator>
   </view>
-  <view slot="content" class='main-content weChatPow' wx:if="{{show}}">
+  <view slot="content" class="main-content weChatPow {{show?'show':''}}">
     <view class="dialog_title">微信授权</view>
     <view class="authorization_con">
       <view class="_desc">

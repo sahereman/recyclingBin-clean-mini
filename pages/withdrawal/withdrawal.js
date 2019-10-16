@@ -144,8 +144,15 @@ Page({
       if (res.statusCode == 201){
         wx.showToast({
           title: '提现成功',
+          icon: 'success',
           duration: 2000
         })
+        var timer = setInterval(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+          clearInterval(timer);
+        }, 1000)
       } else if (res.statusCode == 422) {
         wx.showToast({
           title: res.data.errors.money[0],

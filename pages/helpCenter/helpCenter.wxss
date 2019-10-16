@@ -44,7 +44,15 @@ view{
   width: 32rpx;
   top:50rpx;
 }
-
+.help_con .help_item .open_help{
+  display:none;
+}
+.help_con .help_item.cur .go_help{
+  display:none;
+}
+.help_con .help_item.cur .open_help{
+  display:block;
+}
 .help_con .help_item ._ans{
   line-height:40rpx;
   font-size:28rpx;

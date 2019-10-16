@@ -26,7 +26,23 @@ Page({
         token: token,
         userinfo: userinfo
       })
-      that._getData()
+      that._getData();
+      wx.getSetting({
+        success(res) {
+          console.log(res);
+          if (!res.authSetting['scope.userLocation']) {
+            wx.authorize({
+              scope: 'scope.userLocation',
+              success() {
+                console.log("用户地理位置授权成功")
+              },
+              fail(){
+                console.log("用户地理位置授权失败")
+              }
+            })
+          }
+        }
+      })
     } else {
       // token无效
       if (token && token.length != 0) {
@@ -53,6 +69,7 @@ Page({
       token: that.data.token
     }
     userInfoShow(requestData).then(res => {
+      wx.stopPullDownRefresh();
       if (res.statusCode == 200) {
         that.setData({
           userInfo: res.data,
@@ -116,6 +133,30 @@ Page({
             //   console.log(res)
             // })
           }
+        }
+      }
+    })
+  },
+  onPullDownRefresh() {//下拉刷新
+    var that = this;
+    that.getUserMsg();
+  },
+  goRoadMap:function(){//进入路线规划
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.openSetting({
+            success(res) {
+              console.log(res.authSetting)
+              res.authSetting = {
+                "scope.userLocation": true
+              }
+            }
+          })
+        }else{
+          wx.navigateTo({
+            url: '../../pages/roadMap/roadMap'
+          })
         }
       }
     })

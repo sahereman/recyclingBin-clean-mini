@@ -23,7 +23,7 @@
               <image wx:if="{{item.type_fabric.status=='repair'}}" src="../../assets/images/my/repair_sign.png" mode='widthFix'></image>
             </view>
             <view class="_num">{{item.type_fabric.number}}{{item.type_fabric.unit}}</view>
-            <view class="_acount">￥40</view>
+            <view class="_acount">￥{{item.type_fabric.subtotal}}</view>
           </view>
           <view class='_item'>
             <view class="_name">可回收物
@@ -31,13 +31,13 @@
               <image wx:if="{{item.type_paper.status=='repair'}}" src="../../assets/images/my/repair_sign.png" mode='widthFix'></image>
             </view>
             <view class="_num">{{item.type_paper.number}}{{item.type_paper.unit}}</view>
-            <view class="_acount">￥30.00</view>
+            <view class="_acount">￥{{item.type_paper.subtotal}}</view>
           </view>
         </view>
         <view class="_bot">
           <view class="_time">运行时间：06:00-24:00</view>
           <view class="_add">合计：
-            <text>¥ 70.00</text>
+            <text>¥ {{item.total}}</text>
           </view>
         </view>
       </view>

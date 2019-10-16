@@ -13,6 +13,10 @@ view{
 }
 .weChatPow{
   text-align:center;
+  display:none;
+}
+.weChatPow.show{
+  display:block;
 }
 .weChatPow .dialog_title{
   line-height:55rpx;

@@ -69,6 +69,7 @@ page .banner image{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  border-top:1px solid #F1F1F1;
 }
 .userCon .help_center image{
   width:32rpx;

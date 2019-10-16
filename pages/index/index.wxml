@@ -1,23 +1,25 @@
 <!--index.wxml-->
 <view class="container home_page">
   <view class="userPart clearfix">
-    <view class="user_msg" wx:if="{{!avatar_url}}">
-      <image class="head_img" src="../../assets/images/home/temp_headimg.jpg" />
-      <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
-      <view class="user_name cutWord">用户名</view>
-    </view>
-    <view class="user_msg" wx:else>
-      <image class="head_img" src="{{avatar_url}}" />
-      <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
-      <view class="user_name cutWord">{{username}}</view>
-    </view>
+    <navigator class="" open-type="switchTab" url="../../pages/userCenter/userCenter" hover-class="none">
+      <view class="user_msg" wx:if="{{!avatar_url}}">
+        <image class="head_img" src="../../assets/images/home/temp_headimg.jpg" />
+        <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
+        <view class="user_name cutWord">用户名</view>
+      </view>
+      <view class="user_msg" wx:else>
+        <image class="head_img" src="{{avatar_url}}" />
+        <image class="username_sign" src="../../assets/images/home/username_sign.png" mode='widthFix' />
+        <view class="user_name cutWord">{{username}}</view>
+      </view>
+    </navigator>
     <navigator class="user_nav" url="../../pages/setting/setting" hover-class="none">
       <image src="../../assets/images/home/setting_icon.png" mode='widthFix' />
       <view>设置</view>
     </navigator>
     <navigator class="user_nav" url="../../pages/message/message" hover-class="none">
       <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
-      <view class="new_tip"></view>
+      <!-- <view class="new_tip"></view> -->
       <view>消息</view>
     </navigator>
   </view>
@@ -35,9 +37,12 @@
   </view>
   <!-- 线路规划 -->
   <view class="lineRoutepart">
-    <navigator class="_go" url="../../pages/roadMap/roadMap" hover-class="none">
-      <image class="line_route" mode='widthFix' src="../../assets/images/home/line_route.png" />
-    </navigator>
+    <view class="_go" bindtap="goRoadMap">
+     <image class="line_route" mode='widthFix' src="../../assets/images/home/line_route.png" />
+    </view>
+    <!-- <navigator class="_go" url="../../pages/roadMap/roadMap" hover-class="none">
+      
+    </navigator> -->
   </view>
   <!-- 导航 -->
   <view class="navPart">

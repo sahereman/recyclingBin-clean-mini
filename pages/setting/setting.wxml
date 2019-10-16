@@ -13,4 +13,5 @@
       <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
     </navigator>
   </view>
+  <view class="login_out" bindtap="loginOut">退出登录</view>
 </view>

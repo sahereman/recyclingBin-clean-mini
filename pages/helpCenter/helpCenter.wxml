@@ -5,7 +5,8 @@
   <view class="help_con">
     <view class="help_item {{item.isOpen==true?'cur':''}}" wx:for="{{helpData}}" wx:key="index" wx:for-index="index" bindtap="openQues" data-index="{{index}}">
       <view class="_ques">{{item.ques}}</view>
-      <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+      <image class="go_help" src="../../assets/images/my/go_help.png" mode='widthFix'></image>
+      <image class="open_help" src="../../assets/images/my/open_help.png" mode='widthFix'></image>
       <view class="_ans">{{item.ans}}</view>
     </view>
   </view>

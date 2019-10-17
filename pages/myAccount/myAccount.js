@@ -43,6 +43,7 @@ Page({
       token: that.data.token
     }
     userInfoShow(requestData).then(res => {
+      wx.stopPullDownRefresh();
       if (res.statusCode == 200) {
         that.setData({
           userInfo: res.data

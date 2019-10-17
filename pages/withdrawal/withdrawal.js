@@ -5,14 +5,14 @@ import { updateToken, userInfoShow, withdrawal } from '../../service/api/user.js
 Page({
   data: {
     token: '',
-    currentIndex:-1,
     isnext:false,
     usefulMoney:0,
     fillNum:'',
     username:'',//收款人户名
     useraccount:'',//收款账号
     bankname:'',//银行名称
-    bankad:''//开户银行
+    bankad:'',//开户银行
+    fillEffec:false//提现金额有效
   },
   onLoad: function(options) {
 
@@ -48,6 +48,7 @@ Page({
       token: that.data.token
     }
     userInfoShow(requestData).then(res => {
+      wx.stopPullDownRefresh();
       if (res.statusCode == 200) {
         that.setData({
           usefulMoney: res.data.money
@@ -72,25 +73,40 @@ Page({
     })
   },
   onPullDownRefresh() { //下拉刷新
+    this.setData({
+      isnext: false,
+      fillNum: '',
+      username: '',//收款人户名
+      useraccount: '',//收款账号
+      bankname: '',//银行名称
+      bankad: ''//开户银行
+    })
+    this.getUserMsg()
     
   },
   getFillVal:function(e){
-    var num = e.detail.value;
     var that = this;
-    if (num){
-      that.setData({
-        fillNum: num
-      })
-    }else{
-      that.setData({
-        fillNum: num
+    var num = e.detail.value;
+    var usefulMoney = Number(that.data.usefulMoney);
+    var temp = false;
+    if (num > 0 && num <= usefulMoney) {
+      temp = true;
+    } else if (num > usefulMoney){
+      wx.showToast({
+        title: '提现金额不能超出余额',
+        icon: 'none',
+        duration: 2000
       })
     }
-    this.isNextStep()
+    that.setData({
+      fillNum: num,
+      fillEffec: temp
+    })
+    that.isNextStep();
   },
   isNextStep:function(){
     var that = this;
-    if (checkIsEmpty(that.data.username) == false && checkIsEmpty(that.data.useraccount) == false && checkIsEmpty(that.data.bankname) == false && checkIsEmpty(that.data.bankad) == false && checkIsEmpty(that.data.fillNum) == false){
+    if (checkIsEmpty(that.data.username) == false && checkIsEmpty(that.data.useraccount) == false && checkIsEmpty(that.data.bankname) == false && checkIsEmpty(that.data.bankad) == false && that.data.fillEffec == true ){
       that.setData({
         isnext:true
       })

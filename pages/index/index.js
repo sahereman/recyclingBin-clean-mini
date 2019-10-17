@@ -1,25 +1,25 @@
-//index.js
-//获取应用实例
+//index.js 
+//获取应用实例 
 const app = getApp()
 import { checkIsEmpty, examineToken, isTokenFailure } from '../../utils/util.js'
 import { getToken, updateToken, userInfoShow, getUserOpenid } from '../../service/api/user.js'
-import { TOKEN,USERINFO,VALIDTIME } from '../../common/const.js'
+import { TOKEN, USERINFO, VALIDTIME } from '../../common/const.js'
 Page({
   data: {
-    avatar_url:'',
-    username:'',
+    avatar_url: '',
+    username: '',
     userInfo: {},
-    token:'',
+    token: '',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
-  onShow:function(){
+  onShow: function () {
     const token = wx.getStorageSync(TOKEN);
     const userinfo = wx.getStorageSync(USERINFO);
     var that = this;
     if (isTokenFailure()) {
-      // token有效
+      // token有效 
       var temp = false;
-      if (!userinfo.wx_openid){
+      if (!userinfo.wx_openid) {
         temp = true;
       }
       that.setData({
@@ -29,14 +29,13 @@ Page({
       that._getData();
       wx.getSetting({
         success(res) {
-          console.log(res);
           if (!res.authSetting['scope.userLocation']) {
             wx.authorize({
               scope: 'scope.userLocation',
               success() {
                 console.log("用户地理位置授权成功")
               },
-              fail(){
+              fail() {
                 console.log("用户地理位置授权失败")
               }
             })
@@ -44,13 +43,13 @@ Page({
         }
       })
     } else {
-      // token无效
+      // token无效 
       if (token && token.length != 0) {
-        // 当token存在只需要进行更新
-        // 刷新token
+        // 当token存在只需要进行更新 
+        // 刷新token 
         updateToken(token, that);
-      } else { 
-        // token不存在需用户重新登录
+      } else {
+        // token不存在需用户重新登录 
         wx.reLaunch({
           url: '../../pages/login/login'
         })
@@ -60,10 +59,10 @@ Page({
   onLoad: function () {
     var that = this;
   },
-  _getData:function(){
+  _getData: function () {
     this.getUserMsg();
   },
-  getUserMsg: function (){//获取回收员信息
+  getUserMsg: function () {//获取回收员信息 
     var that = this;
     var requestData = {
       token: that.data.token
@@ -76,7 +75,6 @@ Page({
           avatar_url: res.data.avatar_url,
           username: res.data.name
         })
-        console.log(res.data);
         wx.setStorage({
           key: USERINFO,
           data: res.data
@@ -90,7 +88,7 @@ Page({
       }
     })
   },
-  scanGetGoods:function(){//扫码取货
+  scanGetGoods: function () {//扫码取货 
     const that = this;
     wx.scanCode({
       onlyFromCamera: true,
@@ -114,34 +112,34 @@ Page({
               token: token,
               resultToken: res.result.split("?")[1].split('=')[1]
             }
-            // scanSuccess(requestData).then(res => {
-            //   if (res.statusCode == 422) {
-            //     wx.showModal({
-            //       title: '二维码识别识别',
-            //       content: '请扫描工蚁回收相关二维码',
-            //       confirmText: '重新扫描',
-            //       success(res) {
-            //         if (res.confirm) {
-            //           that.getScanCode();
-            //         } else if (res.cancel) {
-            //           console.log('用户点击取消')
-            //         }
-            //       }
-            //     })
-            //   } 
-            // }).catch(res => {
-            //   console.log(res)
-            // })
+            // scanSuccess(requestData).then(res => { 
+            //   if (res.statusCode == 422) { 
+            //     wx.showModal({ 
+            //       title: '二维码识别识别', 
+            //       content: '请扫描工蚁回收相关二维码', 
+            //       confirmText: '重新扫描', 
+            //       success(res) { 
+            //         if (res.confirm) { 
+            //           that.getScanCode(); 
+            //         } else if (res.cancel) { 
+            //           console.log('用户点击取消') 
+            //         } 
+            //       } 
+            //     }) 
+            //   }  
+            // }).catch(res => { 
+            //   console.log(res) 
+            // }) 
           }
         }
       }
     })
   },
-  onPullDownRefresh() {//下拉刷新
+  onPullDownRefresh() {//下拉刷新 
     var that = this;
     that.getUserMsg();
   },
-  goRoadMap:function(){//进入路线规划
+  goRoadMap: function () {//进入路线规划 
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userLocation']) {
@@ -153,7 +151,7 @@ Page({
               }
             }
           })
-        }else{
+        } else {
           wx.navigateTo({
             url: '../../pages/roadMap/roadMap'
           })
@@ -161,4 +159,4 @@ Page({
       }
     })
   }
-})
+}) 

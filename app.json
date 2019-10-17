@@ -16,8 +16,7 @@
     "pages/helpCenter/helpCenter",
     "pages/userCenter/userCenter",
     "pages/order/order",
-    "pages/orderDetail/orderDetail",
-    "pages/recoveryPrice/recoveryPrice"
+    "pages/orderDetail/orderDetail"
   ],
   "permission": {
     "scope.userLocation": {

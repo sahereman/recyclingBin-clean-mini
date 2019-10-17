@@ -46,7 +46,7 @@ Page({
     
   },
   onPullDownRefresh() { //下拉刷新
-    
+    wx.stopPullDownRefresh();
   },
   choseNum:function(e){//选择充值金额
     var index = e.currentTarget.dataset.index;

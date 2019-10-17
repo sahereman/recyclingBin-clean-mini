@@ -71,7 +71,7 @@ Page({
 
   },
   onPullDownRefresh() { //下拉刷新
-
+    wx.stopPullDownRefresh();
   },
   changeShowPwd:function(){//展示或隐藏密码
     var that = this;

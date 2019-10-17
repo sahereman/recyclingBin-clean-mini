@@ -36,7 +36,7 @@ Page({
 
   },
   onPullDownRefresh() { //下拉刷新
-
+    wx.stopPullDownRefresh();
   },
   loginOut:function(){//退出登录
     var that = this;

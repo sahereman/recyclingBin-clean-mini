@@ -19,6 +19,7 @@ Page({
         name: '满箱'
       }
     ],
+    floatHeight:'',
     isFixed:false//导航栏是否浮动
   },
   onShow: function () {
@@ -43,7 +44,9 @@ Page({
     }
   },
   onLoad: function (options) {
- 
+    this.setData({
+      floatHeight: 0.44 * wx.getSystemInfoSync().windowWidth
+    })
   },
   // 网络请求
   _getData() {
@@ -56,12 +59,11 @@ Page({
     }
     getMyMachine(params).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
-        console.log(res.data.data);
+      if (res.statusCode == 200) {;
         that.setData({
-          orderLists: res.data.data,
-          machineData: res.data.data
+          orderLists: res.data.data
         })
+        that.changeData(that.data.currentIndex);
       }
     })
   },
@@ -71,16 +73,19 @@ Page({
       orderLists: []
     })
     that.getOrderList();
+    
   },
   changeList:function(e){//tab切换
-    console.log(e.currentTarget.dataset.index);
     var index = e.currentTarget.dataset.index;
+    this.changeData(index);
+  },
+  changeData:function(index){
     var that = this;
     var temp = [];
     var orderLists = that.data.orderLists;
-    if(index == 0){
+    if (index == 0) {
       temp = orderLists;
-    }else if(index == 1){
+    } else if (index == 1) {
       for (var i = 0; i < orderLists.length; i++) {
         if (orderLists[i].type_fabric.status == 'normal' && orderLists[i].type_paper.status == 'normal') {
           temp.push(orderLists[i])
@@ -93,27 +98,24 @@ Page({
         }
       }
     }
-    
+
     that.setData({
-      currentIndex: e.currentTarget.dataset.index,
+      currentIndex: index,
       machineData: temp
     })
   },
   onPageScroll:function(res){
     var that = this;
     var isFixed = that.data.isFixed;
-    const query = wx.createSelectorQuery()
-    query.select('#banner_part').boundingClientRect()
-    query.exec(function (rel) {
-      if (res.scrollTop > rel[0].height && isFixed == false) {
-        that.setData({
-          isFixed:true
-        })
-      } else if (res.scrollTop < rel[0].height && isFixed == true){
-        that.setData({
-          isFixed: false
-        })
-      }
-    }) 
+    var floatHeight = that.data.floatHeight;
+    if (res.scrollTop > floatHeight && isFixed == false) {
+      that.setData({
+        isFixed: true
+      })
+    } else if (res.scrollTop < floatHeight && isFixed == true) {
+      that.setData({
+        isFixed: false
+      })
+    }
   }
 })

@@ -45,7 +45,7 @@ Page({
         id: 1,
         latitude: 36.08943,
         longitude: 120.37779,
-        width: 40,
+        width: 30,
         height: 36
       },
       {
@@ -53,7 +53,7 @@ Page({
         id: 2,
         latitude: 36.08843,
         longitude: 120.37479,
-        width: 50,
+        width: 30,
         height: 36
       }
     ]
@@ -85,11 +85,7 @@ Page({
   // 网络请求
   _getData() {
     this.getLocation();
-    var params = {
-      from: '36.08743,120.37479',
-      to:'36.08943,120.37779'
-    }
-    this.formSubmit(params);
+    
   },
   // 获取位置信息
   getLocation() {
@@ -97,7 +93,12 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: res => {
-        console.log(res);
+        wx.stopPullDownRefresh();
+        var params = {
+          from: res.latitude + ',' + res.longitude,
+          to: '36.08943,120.37779'
+        }
+        this.formSubmit(params);
         this.setData({
           lat: res.latitude,
           lng: res.longitude
@@ -109,7 +110,7 @@ Page({
     })
   },
   onPullDownRefresh() {//下拉刷新
-    
+    this.getLocation();
   },
   formSubmit(params) {
     var _this = this;

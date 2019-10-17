@@ -1,4 +1,4 @@
-<map id="map" longitude="{{lng}}" polyline="{{polyline}}" latitude="{{lat}}" markers="{{markers}}" show-location style="width: 100%; height: 100%;">
+<map id="map" longitude="{{lng}}" polyline="{{polyline}}" latitude="{{lat}}" include-points="{{markers}}" markers="{{markers}}" show-location style="width: 100%; height: 100%;">
   <cover-view class="mapTipPart" bindtap="openMapChoose">
     <cover-image class="guide_sign" src="../../assets/images/map/guide_sign.png"></cover-image>
     <cover-view class="mapTip" bindtap="openMapChoose">

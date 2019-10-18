@@ -8,12 +8,15 @@
       <view class="_right {{item.operator=='+'?'_green':''}}">{{item.operator}}{{item.number}}</view>
     </view>
   </view>
-  <view wx:else class="data-empty">
-    <view class="noOrder_con">
-      <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
-      <view class="noorder_text">暂无记录</view>
-      <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+  <view wx:else class="noData_part">
+    <view class="data-empty">
+      <view class="noOrder_con">
+        <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
+        <view class="noorder_text">暂无记录</view>
+        <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+      </view>
     </view>
   </view>
+
   <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view>
 </view>

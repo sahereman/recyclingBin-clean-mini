@@ -3,17 +3,17 @@
   <view class="withdraw-content withdraw">
     <form bindsubmit="formSubmit">
       <view class="form-area">
-        <view class="reset_item">
+        <view class="reset_item {{currentIndex==0?'cur':''}}" bindtap="binsLine" data-index="{{0}}">
           <text decode="{{true}}">账&ensp;&ensp;号</text>
           <input name="account" focus maxlength="11" value="{{accountNum}}" type="number" bindinput="getAccountVal" placeholder-class="no_con"  placeholder="请输入手机号" />
         </view>
-        <view class="reset_item">
+        <view class="reset_item {{currentIndex==1?'cur':''}}" bindtap="binsLine" data-index="{{1}}">
           <text>验证码</text>
           <input name="msgNum" type="number" placeholder-class="no_con" bindinput="getMsgVal" style="width:250rpx;" placeholder="请输入短信验证码" />
           <view class="security" wx:if="{{closeTimerNum}}" bindtap="_sendVerification">获取验证码</view>
           <view class="security" wx:else>{{timerNum}}</view>
         </view>
-        <view class="reset_item">
+        <view class="reset_item {{currentIndex==2?'cur':''}}" bindtap="binsLine" data-index="{{2}}">
           <text>新密码</text>
           <input maxlength="16" bindinput="getPwdVal" password="{{ishidePwd}}" name="pwd" placeholder-class="no_con" placeholder="密码不少于6位" />
           <image class="right_eye" bindtap="changeShowPwd" wx:if="{{ishidePwd}}" src="../../assets/images/my/hide_pwd.png" />

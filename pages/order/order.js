@@ -1,7 +1,7 @@
 const app = getApp()
 import { isTokenFailure } from '../../utils/util.js'
 import { getTopicCategories } from '../../service/api/order.js'
-import { TOKEN } from '../../common/const.js'
+import { TOKEN, USERINFO } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
 Page({
   data: {
@@ -14,6 +14,12 @@ Page({
   onShow:function(){
     var that = this;
     const token = wx.getStorageSync(TOKEN);
+    const userinfo = wx.getStorageSync(USERINFO);
+    if (!userinfo.wx_openid){
+      wx.reLaunch({
+        url: '../../pages/index/index'
+      })
+    }
     if (isTokenFailure()) {
       // token有效
       that.data.token = token;

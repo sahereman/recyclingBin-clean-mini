@@ -10,8 +10,17 @@ Page({
     user_head:''
   },
   onShow: function () {
+    
+  },
+  onLoad: function (options) {
     var that = this;
     const token = wx.getStorageSync(TOKEN);
+    const userinfo = wx.getStorageSync(USERINFO);
+    if (!userinfo.wx_openid) {
+      wx.reLaunch({
+        url: '../../pages/index/index'
+      })
+    }
     if (isTokenFailure()) {
       // token有效
       that.setData({
@@ -32,9 +41,6 @@ Page({
       }
     }
   },
-  onLoad: function (options) {
-    
-  },
   // 网络请求
   _getData() {
     this.getUserMsg()
@@ -47,8 +53,10 @@ Page({
     userInfoShow(requestData).then(res => {
       wx.stopPullDownRefresh();
       if (res.statusCode == 200) {
+        var reg = /^(\d{3})\d{4}(\d{4})$/
+        var _temp = res.data.phone;
         that.setData({
-          user_tell: res.data.phone,
+          user_tell: _temp.replace(reg, '$1****$2'),
           username: res.data.name,
           user_head: res.data.avatar_url
         })

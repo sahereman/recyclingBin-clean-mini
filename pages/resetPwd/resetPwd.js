@@ -27,7 +27,8 @@ Page({
     checkMsg: '', //验证码
     expired_at: '', //短信验证码过期时间
     isfinish: false,
-    ishidePwd:true
+    ishidePwd:true,
+    currentIndex:0
   },
   onShow: function() {
     var that = this;
@@ -170,6 +171,11 @@ Page({
         duration: 2000
       })
     }
+  },
+  binsLine:function(e){
+    this.setData({
+      currentIndex: e.currentTarget.dataset.index
+    })
   },
   getPwdVal: function(e) { //校验密码
     var that = this;

@@ -65,6 +65,7 @@ view{
   line-height:34rpx;
   font-size:24rpx;
   color:#222;
+  width:500rpx;
 }
 .mapTip ._name{
   position:absolute;
@@ -86,9 +87,35 @@ view{
   box-sizing:border-box;
 }
 
-
-
-
+.no_box{
+  width:720rpx;
+  height:140rpx;
+  background:#fff;
+  border-radius:16rpx;
+  position:fixed;
+  left:24rpx;
+  bottom:14rpx;
+  display:none;
+  visibility:hidden;
+}
+.no_box._show{
+  display:block;
+  visibility:visible;
+}
+.no_box .box_sign{
+  width:80rpx;
+  height:82rpx;
+  position:absolute;
+  left: 174rpx;
+  top:28rpx;
+}
+.no_box ._msg{
+  font-size:34rpx;
+  line-height:48rpx;
+  position:absolute;
+  top:46rpx;
+  left:264rpx
+}
 
 
 

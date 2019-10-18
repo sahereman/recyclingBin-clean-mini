@@ -59,7 +59,8 @@ Page({
     }
     getMyMachine(params).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {;
+      if (res.statusCode == 200) {
+        console.log(res.data.data);
         that.setData({
           orderLists: res.data.data
         })

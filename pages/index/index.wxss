@@ -56,6 +56,7 @@
   display:flex;
   line-height:64rpx;
   align-items:center;
+  padding-left:18rpx;
 }
 .userPart .head_img{
   width:64rpx;
@@ -69,7 +70,9 @@
   margin-right:2rpx;
 }
 .userPart .user_name{
-  width:310rpx;
+  width:290rpx;
+  font-size:36rpx;
+  font-weight:700;
 }
 
 .userPart .user_nav{
@@ -145,7 +148,7 @@
 
 /* 导航 */
 .navPart{
-  padding:48rpx 36rpx;
+  padding:30rpx 36rpx;
 }
 .navPart .line_item{
   height:236rpx;
@@ -156,9 +159,9 @@
   align-items:center;
 }
 .navPart .line_item ._go{
-  width:160rpx;
+  width:180rpx;
   text-align:center;
-  margin:0 25rpx;
+  margin:0 5rpx;
   height:148rpx;
 }
 .navPart .line_item ._go image{

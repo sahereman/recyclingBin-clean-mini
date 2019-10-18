@@ -1,7 +1,7 @@
 <view class="fillMoney">
   <view class="fill_con">
     <view class="_bt">提现金额</view>
-    <view class="fill_part">
+    <view class="fill_part {{currentIndex==0?'cur':''}}" bindtap="binsLine" data-index="{{0}}">
       <image src="../../assets/images/my/money_icon.png" mode='widthFix'></image>
       <view class="line" wx:if="{{!fillNum}}"></view>
       <input focus value="{{fillNum}}" adjust-position="{{false}}" type="number" bindinput="getFillVal" placeholder-class="no_con" placeholder="可提现金额 ¥{{usefulMoney}}"></input>
@@ -9,20 +9,20 @@
     </view>
     <form bindsubmit="formSubmit">
       <view class="form-area">
-        <view class="form_item">
+        <view class="form_item {{currentIndex==1?'cur':''}}" bindtap="binsLine" data-index="{{1}}">
           <text>户名</text>
           <input bindinput='blurname' name="name" value="{{username}}"  placeholder-class="no_con" placeholder="请输入收款人户名" />
         </view>
-        <view class="form_item">
+        <view class="form_item {{currentIndex==2?'cur':''}}" bindtap="binsLine" data-index="{{2}}">
           <text>账号</text>
           <input bindinput='bluraccount' name="account" type="number" value="{{useraccount}}" placeholder-class="no_con" placeholder="请输入收款人账号" />
           <image wx:if="{{image_show}}" src="../../assets/images/user/right_finish.png" />
         </view>
-        <view class="form_item">
+        <view class="form_item {{currentIndex==3?'cur':''}}" bindtap="binsLine" data-index="{{3}}">
           <text>银行</text>
           <input bindinput='blurbank' name="bank" value="{{bankname}}" placeholder-class="no_con" placeholder="请输入银行名称" />
         </view>
-        <view class="form_item">
+        <view class="form_item {{currentIndex==4?'cur':''}}" bindtap="binsLine" data-index="{{4}}">
           <text style="width:150rpx;">开户银行</text>
           <input bindinput='blurbankAd' name="bankname" value="{{bankad}}" placeholder-class="no_con" placeholder="请输入开户银行" />
         </view>

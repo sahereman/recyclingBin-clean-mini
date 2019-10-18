@@ -22,11 +22,14 @@ view{
 }
 
 .fillMoney .fill_con .fill_part{
-  border-bottom:1px solid #49C8B3;
+  border-bottom:1px solid #F1F1F1;
   padding:12rpx 4rpx;
   display:flex;
   align-items:center;
   position:relative;
+}
+.fillMoney .fill_con .fill_part.cur{
+  border-color: #49C8B3;
 }
 .fillMoney .fill_con ._all{
   background:#E1FAF6;
@@ -45,11 +48,7 @@ view{
   height:44rpx;
   background:#05B497;
 }
-.fillMoney .fill_part .no_con{
-  color:#AAAAAA;
-  font-size:30rpx;
-  line-height:42rpx;
-}
+
 .fillMoney .fill_part input{
   padding-left:20rpx;
   color:#000;
@@ -85,14 +84,14 @@ view{
   font-size:32rpx;
   border-bottom:1px solid #F1F1F1;
 }
+.form-area .form_item.cur{
+  border-color:#49C8B3;
+}
 .form-area .form_item input{
   text-align:right;
   padding-right:8rpx;
 }
-.form-area .form_item .no_con{
-  color:#AAAAAA;
-  font-size:28rpx;
-}
+
 .form-area{
   margin-bottom:24rpx;
 }

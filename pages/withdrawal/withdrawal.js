@@ -12,7 +12,8 @@ Page({
     useraccount:'',//收款账号
     bankname:'',//银行名称
     bankad:'',//开户银行
-    fillEffec:false//提现金额有效
+    fillEffec:false,//提现金额有效
+    currentIndex:0
   },
   onLoad: function(options) {
 
@@ -41,6 +42,11 @@ Page({
   // 网络请求
   _getData() {
     this.getUserMsg()
+  },
+  binsLine: function (e) {
+    this.setData({
+      currentIndex: e.currentTarget.dataset.index
+    })
   },
   getUserMsg: function () {//获取回收员信息
     var that = this;

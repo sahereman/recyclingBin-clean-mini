@@ -11,3 +11,19 @@ export function getNewPrice(requestData) {
     }
   })
 } 
+
+// 扫码开箱
+export function scanSuccess(requestData) {
+  return request({
+    url: 'bins/qrLogin',
+    method: "PUT",
+    header: {
+      Authorization: requestData.token
+    },
+    data: {
+      token: requestData.resultToken,
+    }
+  })
+} 
+
+

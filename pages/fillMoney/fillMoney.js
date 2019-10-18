@@ -19,7 +19,7 @@ Page({
     var that = this;
     if (!userinfo.wx_openid) {
       wx.reLaunch({
-        url: '../../pages/login/login'
+        url: '../../pages/index/index'
       })
     }
     if (isTokenFailure()) {

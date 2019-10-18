@@ -19,7 +19,7 @@
     </navigator>
     <navigator class="user_nav" url="../../pages/message/message" hover-class="none">
       <image src="../../assets/images/home/msg_icon.png" mode='widthFix' />
-      <!-- <view class="new_tip"></view> -->
+      <view class="new_tip" wx:if="{{notification_count>0}}"></view>
       <view>消息</view>
     </navigator>
   </view>
@@ -75,4 +75,25 @@
       </navigator>
     </view>
   </view>
+  <w-dialog show="{{show}}">
+  <view slot="content" class="main-content weChatPow">
+    <view class="dialog_title">微信授权</view>
+    <view class="authorization_con">
+      <view class="_desc">申请获得以下权限</view>
+      <view class="detail_desc">
+        <view class="getYorsinfo">
+          <text>· </text> 获得你的昵称、头像、地区及性别
+        </view>
+        <view class="getYorsinfo">
+          <text>· </text> 你的地理位置信息
+        </view>
+        <view class="getYorsinfo _last">将用于向您推荐附近的工蚁回收机</view>
+      </view>
+    </view>
+    <view slot="operation" class="main-footer btn_part">
+      <view wx:if='{{!canIUse}}' class='cancel-btn' bindtap='cancel'>请升级微信版本</view>
+      <button wx:else class='confirm-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授  权</button>
+    </view>
+  </view>
+  </w-dialog>
 </view>

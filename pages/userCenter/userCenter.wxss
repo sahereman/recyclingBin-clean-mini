@@ -37,9 +37,10 @@ page .banner image{
   color:#323232;
   line-height:50rpx;
   margin-bottom:14rpx;
+  font-weight:700;
 }
 .userCon ._user ._tell{
-  font-size:24rpx;
+  font-size:30rpx;
   color:#888;
   line-height:34rpx;
 }

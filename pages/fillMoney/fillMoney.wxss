@@ -35,11 +35,7 @@ view{
   height:44rpx;
   background:#05B497;
 }
-.fillMoney .fill_part .no_con{
-  color:#AAAAAA;
-  font-size:30rpx;
-  line-height:42rpx;
-}
+
 .fillMoney .fill_part input{
   padding-left:20rpx;
   color:#000;

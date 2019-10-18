@@ -22,7 +22,7 @@
     </view>
     <navigator class="reset_pwd" url="../../pages/resetPwd/resetPwd" hover-class="none">找回密码</navigator>
   </view>
-  <view slot="content" class="main-content weChatPow {{show?'show':''}}">
+  <!-- <view slot="content" class="main-content weChatPow {{show?'show':''}}">
     <view class="dialog_title">微信授权</view>
     <view class="authorization_con">
       <view class="_desc">
@@ -42,6 +42,6 @@
       <view wx:if='{{!canIUse}}' class='cancel-btn' bindtap='cancel'>请升级微信版本</view>
       <button wx:else class='confirm-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
     </view>
-  </view>
+  </view> -->
 
 </view>

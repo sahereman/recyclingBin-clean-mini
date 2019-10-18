@@ -27,7 +27,9 @@ view{
   align-items:center;
   position:relative;
 }
-
+.form-area .reset_item.cur{
+  border-color:#49C8B3;
+}
 .form-area .reset_item text {
   font-size:32rpx;
   color:#222;
@@ -42,11 +44,7 @@ view{
   color:#222;
   font-size:32rpx;
 }
-.form-area view .no_con{
-  color:#AAAAAA;
-  font-size:28rpx;
-  font-weight:500;
-}
+
 .form-area view .money-num {
   margin: auto;
   margin-left: 26rpx;

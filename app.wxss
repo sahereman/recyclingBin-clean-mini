@@ -39,6 +39,9 @@ page {
 }
 
 /* 微信授权弹窗 */
+.weChatPow .dialog_title{
+  line-height:55rpx;
+}
 
 .modal-content {
   padding: 20rpx 0 !important;
@@ -49,7 +52,7 @@ page {
   line-height: 95rpx;
   color: rgba(0, 0, 0, 0.9);
   font-size: 38rpx;
-  border-bottom: 2px solid rgba(223, 223, 224, 0.4);
+  border-bottom: 1px solid rgba(223, 223, 224, 0.4);
   padding-top: 20rpx;
   position: relative;
 }
@@ -256,11 +259,9 @@ page {
   padding-left:15rpx;
   box-sizing: border-box;
   position: relative;
-  border-left:4rpx solid #fff;
+  font-size:36rpx;
 }
-.main-content .content-row.green_line input{
-  border-left:4rpx solid #05B497;
-}
+
 .main-content .content-row.green_line{
   border-color:#49C8B3;
 }
@@ -306,7 +307,7 @@ page {
 
 .main-footer.bindWxPhone button._btn {
   background:transparent;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   border: 0;
   outline: none;
   margin-bottom: 23rpx;
@@ -353,17 +354,77 @@ page {
   line-height:42rpx;
   color:#888;
   text-align:center;
-  margin-bottom:60rpx;
-  padding-top:56rpx;
+  margin-bottom:20rpx;
+  padding-top:40rpx;
 }
 .data-empty ._go_home{
-  width:220rpx;
-  height:64rpx;
+  width:296rpx;
+  height:72rpx;
   margin:0 auto;
   text-align:center;
-  line-height:64rpx;
-  background:rgba(225,250,246,1);
-  border-radius:32rpx;
+  line-height:72rpx;
+  background:#E1FAF6;
+  border-radius:36rpx;
   color:rgba(0,179,149,1);
+  font-size:32rpx;
 }
 /* 数据为空 */
+
+/* 微信授权弹窗 */
+.weChatPow{
+  background:#F9F9F9;
+  border-radius: 16rpx;
+  padding-bottom:52rpx;
+}
+.dialog_title{
+  color:#222;
+  font-size:36rpx;
+  padding-top:16rpx;
+  height:80rpx;
+  line-height:80rpx;
+}
+.authorization_con{
+  padding-top:22rpx;
+}
+.authorization_con ._desc{
+  font-size:28rpx;
+  line-height:40rpx;
+  height:40rpx;
+  margin-bottom:10rpx;
+  color:#666;
+}
+.weChatPow .getYorsinfo{
+  font-size:28rpx;
+  color:#222;
+  line-height:52rpx;
+}
+.weChatPow .detail_desc{
+  padding:0;
+}
+.weChatPow .getYorsinfo._last{
+  color:#666;
+  margin-bottom:16rpx;
+}
+.weChatPow .getYorsinfo text{
+  font-size:36rpx;
+  color:#00B395;
+}
+.weChatPow .btn_part .confirm-btn{
+  background:#0DBB9B;
+  width:560rpx;
+  height:100rpx;
+  border-radius:50rpx;
+  color:#fff;
+}
+.main-footer.btn_part {
+  border:0;
+}
+.noData_part{
+  position:fixed;
+  left: 0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:#fff;
+}
+/* 微信授权弹窗 */

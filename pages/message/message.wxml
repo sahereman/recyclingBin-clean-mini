@@ -9,13 +9,16 @@
     </view>
   </block>
   <block wx:else>
-    <view class="data-empty">
-      <view class="noOrder_con">
-        <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
-        <view class="noorder_text">暂无记录</view>
-        <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+    <view class="noData_part">
+      <view class="data-empty">
+        <view class="noOrder_con">
+          <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
+          <view class="noorder_text">暂无记录</view>
+          <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+        </view>
       </view>
     </view>
+    
   </block>
   <!-- <view class="msg_item">
     <view class="bt">充值成功<text></text></view>

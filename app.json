@@ -1,16 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/setting/setting",
     "pages/withdrawal/withdrawal",
+    "pages/resetPwd/resetPwd",
+    "pages/roadMap/roadMap",
+    "pages/setting/setting",
     "pages/fillMoney/fillMoney",
     "pages/login/login",
-    "pages/roadMap/roadMap",
     "pages/myMachine/myMachine",
     "pages/priceInstructions/priceInstructions",
     "pages/myOrder/myOrder",
     "pages/myAccount/myAccount",
-    "pages/resetPwd/resetPwd",
     "pages/message/message",
     "pages/aboutUs/aboutUs",
     "pages/helpCenter/helpCenter",
@@ -32,7 +32,8 @@
     "backgroundColor": "#eeeeee"
   },
   "tabBar": {
-    "selectedColor": "#59db9d",
+    "selectedColor": "#06CC70",
+    "borderStyle":"white",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -42,7 +43,7 @@
       },
       {
         "pagePath": "pages/order/order",
-        "text": "订单",
+        "text": "记录",
         "iconPath": "assets/images/tabbar/order.png",
         "selectedIconPath": "assets/images/tabbar/order_select.png"
       },

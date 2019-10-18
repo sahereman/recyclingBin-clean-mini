@@ -1,6 +1,6 @@
 <view class="myMachine">
   <view id="banner_part" class="banner_part">
-    <image src="../../assets/images/my/banner_machine.png" mode='widthFix'></image>
+    <image src="../../assets/images/my/banner_machine.png"></image>
     <navigator class="_go_price_btn" url="../../pages/priceInstructions/priceInstructions" hover-class="none">价格参考表
       <image class="go_price" src="../../assets/images/my/go_price.png"></image>
     </navigator>
@@ -47,12 +47,19 @@
       </block>
       <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view> -->
     </view>
-    <view wx:else class="data-empty">
-      <view class="noOrder_con">
-        <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
-        <view class="noorder_text">暂无记录</view>
-        <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+    <view class="noData_box" wx:else>
+      <view class="con">
+        <view class="_bg">
+          <view class="data-empty">
+            <view class="noOrder_con">
+              <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
+              <view class="noorder_text">暂无记录</view>
+              <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
+
   </view>
 </view>

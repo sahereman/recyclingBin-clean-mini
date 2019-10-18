@@ -22,17 +22,13 @@ Page({
     const token = wx.getStorageSync(TOKEN);
     const userinfo = wx.getStorageSync(USERINFO);
     var that = this;
-    var temp = false;
-    if (!userinfo.wx_openid) {
-      temp = true;
-    }
+
     if (isTokenFailure()) {
       // token有效
       that.setData({
         token: token,
         showModal: false,
-        userinfo: userinfo,
-        show: temp
+        userinfo: userinfo
       })
       that._getData()
     } else {
@@ -40,8 +36,7 @@ Page({
       if (token && token.length != 0) {
         // 当token存在只需要进行更新
         that.setData({
-          showModal: false,
-          show: temp
+          showModal: false
         })
         // 刷新token
         updateToken(token, that);
@@ -49,8 +44,7 @@ Page({
         //wx.hideTabBar(); 
         // token不存在需用户重新登录
         that.setData({
-          showModal: true,
-          show: false
+          showModal: true
         })
       }
     }
@@ -145,7 +139,10 @@ Page({
             showModal: false,
             token: token
           })
-          that.getUserMsg();
+          wx.reLaunch({
+            url: '../../pages/index/index'
+          })
+          //that.getUserMsg();
         }else{
           wx.showToast({
             title:'登陆失败，请稍后重试',

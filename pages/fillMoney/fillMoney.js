@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure } from '../../utils/util.js'
+import { examineToken, isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN, USERINFO } from '../../common/const.js'
 import { updateToken, fillMyCount } from '../../service/api/user.js'
 Page({
@@ -83,8 +83,10 @@ Page({
       money: that.data.fillNum
     }
     fillMyCount(param).then(res => {
-      console.log(res);
-      if (res.statusCode == 200){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      }else if (res.statusCode == 200){
         wx.requestPayment({
           timeStamp: res.data.wx_pay.timestamp,
           nonceStr: res.data.wx_pay.nonceStr,

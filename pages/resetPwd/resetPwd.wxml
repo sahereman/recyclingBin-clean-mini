@@ -9,7 +9,7 @@
         </view>
         <view class="reset_item {{currentIndex==1?'cur':''}}" bindtap="binsLine" data-index="{{1}}">
           <text>验证码</text>
-          <input name="msgNum" type="number" placeholder-class="no_con" bindinput="getMsgVal" style="width:250rpx;" placeholder="请输入短信验证码" />
+          <input name="msgNum" type="number" placeholder-class="no_con" bindinput="getMsgVal" style="width:250rpx;" placeholder="请输入验证码" />
           <view class="security" wx:if="{{closeTimerNum}}" bindtap="_sendVerification">获取验证码</view>
           <view class="security" wx:else>{{timerNum}}</view>
         </view>

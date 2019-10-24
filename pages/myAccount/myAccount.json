@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "工蚁回收员"
+  "navigationBarTitleText": "工蚁回收员",
+  "backgroundColor": "#F3F4F6"
 }

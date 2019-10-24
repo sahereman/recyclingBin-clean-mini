@@ -43,7 +43,9 @@ view{
   height:100%;
   font-weight:bold;
 }
-
+.fillMoney .fill_part .no_con{
+  font-size:30rpx;
+}
 .fillMoney .choseNum{
   padding-top:20rpx;
   display:flex;

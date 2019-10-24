@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "工蚁充值"
+  "navigationBarTitleText": "工蚁充值",
+  "backgroundColor": "#F3F4F6"
 }

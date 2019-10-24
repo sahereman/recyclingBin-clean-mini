@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure } from '../../utils/util.js'
+import { examineToken, isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken, getMyMachine } from '../../service/api/user.js'
 Page({
@@ -59,7 +59,10 @@ Page({
     }
     getMyMachine(params).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         console.log(res.data.data);
         that.setData({
           orderLists: res.data.data

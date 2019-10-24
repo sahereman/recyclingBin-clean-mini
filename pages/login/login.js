@@ -117,8 +117,19 @@ Page({
         password: that.data.pwd
       }
       getToken(requestData).then( res => {
-        console.log(res);
-        if (res.statusCode == 422){
+        if (res.statusCode == 403) {
+          wx.clearStorage();
+          wx.showModal({
+            title: '提示',
+            content: '当前账号已被禁用,请联系管理员',
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                return
+              }
+            }
+          })
+        }else if (res.statusCode == 422){
           wx.showToast({
             title: res.data.errors.username[0],
             icon: 'none',
@@ -126,7 +137,7 @@ Page({
           })
         } else if (res.statusCode == 201){
           wx.showToast({
-            title: '登陆成功',
+            title: '登录成功',
             icon: 'success',
             duration: 2000
           })
@@ -145,7 +156,7 @@ Page({
           //that.getUserMsg();
         }else{
           wx.showToast({
-            title:'登陆失败，请稍后重试',
+            title:'登录失败，请稍后重试',
             icon: 'none',
             duration: 2000
           })
@@ -182,7 +193,19 @@ Page({
       token: that.data.token
     }
     userInfoShow(requestData).then(res => {
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        wx.clearStorage();
+        wx.showModal({
+          title: '提示',
+          content: '当前账号已被禁用,请联系管理员',
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+
+            }
+          }
+        })
+      }else if (res.statusCode == 200) {
         if (res.data.wx_openid){
           that.setData({
             userInfo: res.data,
@@ -215,7 +238,19 @@ Page({
     var that = this;
     const userinfo = wx.getStorageSync(USERINFO);
     getUserOpenid(requestData).then(res => {
-      if (res.statusCode == 200){
+      if (res.statusCode == 403) {
+        wx.clearStorage();
+        wx.showModal({
+          title: '提示',
+          content: '当前账号已被禁用,请联系管理员',
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+
+            }
+          }
+        })
+      }else if (res.statusCode == 200){
         that.setData({
           userinfo: userinfo,
           show:false

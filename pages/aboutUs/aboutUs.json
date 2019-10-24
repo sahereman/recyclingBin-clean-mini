@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "关于工蚁"
+  "navigationBarTitleText": "关于工蚁",
+  "backgroundColor":"#49d392"
 }

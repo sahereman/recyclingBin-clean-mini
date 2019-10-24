@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "提现"
+  "navigationBarTitleText": "提现",
+  "backgroundColor": "#F3F4F6"
 }

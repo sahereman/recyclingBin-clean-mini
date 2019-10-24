@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "回收记录"
+  "navigationBarTitleText": "回收记录",
+  "backgroundColor": "#F3F4F6"
 }

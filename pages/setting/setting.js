@@ -1,5 +1,5 @@
 const app = getApp()
-import { isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken, loginOutUs } from '../../service/api/user.js'
 Page({
@@ -45,7 +45,10 @@ Page({
     }
     loginOutUs(param).then(res => {
       console.log(res);
-      if (res.statusCode == 204){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 204){
         wx.showToast({
           title: '退出成功',
           icon: 'success',

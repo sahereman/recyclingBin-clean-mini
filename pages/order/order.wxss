@@ -1,7 +1,10 @@
 page, .container {
-  background: #fff;
+  background: #F3F4F6;
 }
-
+.container.hasbg{
+  min-height:100%;
+  background:#F3F4F6;
+}
 .orderLists {
   padding: 20rpx 36rpx;
   box-sizing: border-box;

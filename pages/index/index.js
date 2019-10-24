@@ -4,7 +4,8 @@ const app = getApp()
 import {
   checkIsEmpty,
   examineToken,
-  isTokenFailure
+  isTokenFailure,
+  forbiddenReLaunch
 } from '../../utils/util.js'
 import {
   getToken,
@@ -108,7 +109,10 @@ Page({
   getOpenId: function (requestData) {
     var that = this;
     getUserOpenid(requestData).then(res => {
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         that.getUserMsg();
         that.setData({
           show: false
@@ -123,7 +127,10 @@ Page({
     }
     userInfoShow(requestData).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         if (res.data.wx_openid) {
           that.setData({
             userInfo: res.data,
@@ -167,7 +174,10 @@ Page({
             resultToken: resultToken
           }
           scanSuccess(requestData).then(response => {
-            if (response.statusCode == 422) {
+            if (response.statusCode == 403) {
+              forbiddenReLaunch();
+              return;
+            } else if (response.statusCode == 422) {
               wx.showModal({
                 title: response.data.errors.token[0],
                 content: '请扫描工蚁回收相关二维码',

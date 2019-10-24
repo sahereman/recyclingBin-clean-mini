@@ -1,4 +1,4 @@
-<view class="msg_part">
+<view class="msg_part" wx:if="{{isInit}}">
   <block wx:if="{{msgList.length}}">
     <view class="msg_item" wx:for="{{msgList}}" wx:key="{{index}}">
       <view class="bt">{{item.title}}

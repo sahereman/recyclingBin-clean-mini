@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure, checkIsEmpty } from '../../utils/util.js'
+import { examineToken, isTokenFailure, checkIsEmpty, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN, USERINFO } from '../../common/const.js'
 import { updateToken, userInfoShow, withdrawal } from '../../service/api/user.js'
 Page({
@@ -55,7 +55,10 @@ Page({
     }
     userInfoShow(requestData).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         that.setData({
           usefulMoney: res.data.money
         })
@@ -163,7 +166,10 @@ Page({
     }
     withdrawal(param).then(res => {
       console.log(res);
-      if (res.statusCode == 201){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 201){
         wx.showToast({
           title: '提现成功',
           icon: 'success',

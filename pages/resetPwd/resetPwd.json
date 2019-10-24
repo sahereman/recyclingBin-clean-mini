@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "找回密码"
+  "navigationBarTitleText": "找回密码",
+  "backgroundColor": "#F3F4F6"
 }

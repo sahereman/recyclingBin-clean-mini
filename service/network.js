@@ -4,7 +4,11 @@ import {
 
 // 数据请求封装
 export default function request(options) {
-  if (!options.showloading){
+  if (options.showloading == 2){
+    wx.showLoading({
+      title: '正在登录',
+    })
+  }else if (!options.showloading){
     wx.showLoading({
       title: '数据加载中ing',
     })

@@ -1,5 +1,5 @@
 const app = getApp()
-import { isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken, getMessageData } from '../../service/api/user.js'
 Page({
@@ -8,7 +8,8 @@ Page({
     page:1,
     total_pages:1,//总页码
     msgList:[],
-    isLast:false
+    isLast:false,
+    isInit:false
   },
   onShow: function () {
     var that = this;
@@ -50,8 +51,10 @@ Page({
     }
     getMessageData(param).then(res => {
       wx.stopPullDownRefresh();
-      console.log(res);
-      if (res.statusCode == 200){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200){
         page++;
         for(var i = 0;i < res.data.data.length;i++){
           msgList.push(res.data.data[i]);
@@ -59,7 +62,8 @@ Page({
         that.setData({
           page: page,
           msgList: msgList,
-          total_pages: res.data.meta.pagination.total_pages
+          total_pages: res.data.meta.pagination.total_pages,
+          isInit:true
         })
       }
     })
@@ -69,7 +73,8 @@ Page({
       page: 1,
       msgList: [],
       total_pages:1,
-      isLast: false
+      isLast: false,
+      isInit: false
     })
     this.getMsgData();
   },

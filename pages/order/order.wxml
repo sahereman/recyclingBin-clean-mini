@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" wx:if="{{isInit}}">
   <view class="orderLists" wx:if="{{orderLists.length}}">
     <view class="order_item" wx:for="{{orderLists}}" wx:key="{{index}}">
       <navigator url="{{'../../pages/orderDetail/orderDetail?order_id='+item.id}}" hover-class="none">
@@ -29,11 +29,13 @@
     </view>
     <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view>
   </view>
-  <view wx:else class="data-empty">
-    <view class="noOrder_con">
-      <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
-      <view class="noorder_text">暂无记录</view>
-      <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+  <view wx:else class="noData_part">
+    <view class="data-empty">
+      <view class="noOrder_con">
+        <image src="../../assets/images/common/nodata_bg.png" mode='widthFix'></image>
+        <view class="noorder_text">暂无记录</view>
+        <navigator open-type="switchTab" class="_go_home" url="../../pages/index/index" hover-class="none">返回首页</navigator>
+      </view>
     </view>
   </view>
 </view>

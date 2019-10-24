@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure } from '../../utils/util.js'
+import { examineToken, isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
 import { getNewPrice } from '../../service/api/recyclingBins.js'
@@ -43,11 +43,15 @@ Page({
   getNewPriceData: function () {//获取最新价格  getNewPrice
     var that = this;
     var params = {
-      token: that.data.params
+      token: that.data.token
     }
     getNewPrice(params).then(res => {
+      console.log(res);
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         that.setData({
           priceData:res.data.data
         })

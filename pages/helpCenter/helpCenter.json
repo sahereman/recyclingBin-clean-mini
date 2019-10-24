@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "帮助中心"
+  "navigationBarTitleText": "帮助中心",
+  "backgroundColor": "#F3F4F6"
 }

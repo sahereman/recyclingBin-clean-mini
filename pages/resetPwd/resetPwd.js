@@ -2,7 +2,8 @@ import {
   checkIsEmpty,
   examineToken,
   isTokenFailure,
-  isPoneAvailable
+  isPoneAvailable,
+  forbiddenReLaunch
 } from '../../utils/util.js'
 import {
   updateToken,
@@ -142,8 +143,10 @@ Page({
       }, 1000)
 
       sendVerification(requestData).then(res => {
-        console.log(res);
-        if (res.statusCode == 201) {
+        if (res.statusCode == 403) {
+          forbiddenReLaunch();
+          return;
+        } else if (res.statusCode == 201) {
           wx.showToast({
             title: '发送成功',
             icon: 'success',
@@ -247,8 +250,10 @@ Page({
         password_confirmation: e.detail.value.pwd
       }
       resetPwd(requestData).then(res => {
-        console.log(res);
-        if (res.statusCode == 200) {
+        if (res.statusCode == 403) {
+          forbiddenReLaunch();
+          return;
+        } else if (res.statusCode == 200) {
           wx.showToast({
             title: '修改成功',
             icon: 'success',

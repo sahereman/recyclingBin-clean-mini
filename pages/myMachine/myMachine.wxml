@@ -1,4 +1,4 @@
-<view class="myMachine">
+<view class="myMachine" wx:if="{{machineData.length}}">
   <view id="banner_part" class="banner_part">
     <image src="../../assets/images/my/banner_machine.png"></image>
     <navigator class="_go_price_btn" url="../../pages/priceInstructions/priceInstructions" hover-class="none">价格参考表
@@ -9,7 +9,7 @@
     <view class="m_tab {{isFixed?'_float':''}}">
       <view class="_tab {{currentIndex==index?'cur':''}}" bindtap="changeList" data-index="{{index}}" wx:for="{{tabData}}" wx:key="{{index}}">{{item.name}}</view>
     </view>
-    <view wx:if="{{machineData.length}}">
+    <view>
       <view class="m_list" wx:for="{{machineData}}" wx:key="{{index}}">
         <view class="_bt">
           <view class="_no">{{item.no}}</view>
@@ -41,13 +41,22 @@
           </view>
         </view>
       </view>
-
-      <!-- <block wx:for="{{orderLists}}" wx:key="{{index}}">
-        
-      </block>
-      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view> -->
+      <view class="last-tips" wx:if="{{isLast}}">到底啦，没有更多内容喽~~</view> 
     </view>
-    <view class="noData_box" wx:else>
+  </view>
+</view>
+<view wx:else class="myMachine noMachine">
+  <view id="banner_part" class="banner_part">
+    <image src="../../assets/images/my/banner_machine.png"></image>
+    <navigator class="_go_price_btn" url="../../pages/priceInstructions/priceInstructions" hover-class="none">价格参考表
+      <image class="go_price" src="../../assets/images/my/go_price.png"></image>
+    </navigator>
+  </view>
+  <view class="orderLists">
+    <view class="m_tab {{isFixed?'_float':''}}">
+      <view class="_tab {{currentIndex==index?'cur':''}}" bindtap="changeList" data-index="{{index}}" wx:for="{{tabData}}" wx:key="{{index}}">{{item.name}}</view>
+    </view>
+    <view class="noData_box">
       <view class="con">
         <view class="_bg">
           <view class="data-empty">
@@ -60,6 +69,5 @@
         </view>
       </view>
     </view>
-
   </view>
 </view>

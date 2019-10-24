@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "路线规划"
+  "navigationBarTitleText": "路线规划",
+  "backgroundColor": "#F3F4F6"
 }

@@ -1,5 +1,5 @@
 const app = getApp()
-import { examineToken, isTokenFailure } from '../../utils/util.js'
+import { examineToken, isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken, getMyOrder } from '../../service/api/user.js'
 Page({
@@ -8,7 +8,8 @@ Page({
     page:1,
     total_pages:1,
     orderList:[],
-    isLast:false
+    isLast:false,
+    isInit:false
   },
   onLoad: function(options) {
 
@@ -49,7 +50,10 @@ Page({
     getMyOrder(param).then(res => {
       console.log(res);
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200){
         page++;
         for(var i=0;i<res.data.data.length;i++){
           orderList.push(res.data.data[i]);
@@ -57,7 +61,8 @@ Page({
         that.setData({
           orderList: orderList,
           page: page,
-          total_pages: res.data.meta.pagination.total_pages
+          total_pages: res.data.meta.pagination.total_pages,
+          isInit:true
         })
       }
     })
@@ -66,6 +71,7 @@ Page({
     var that = this;
     that.setData({
       isLast:false,
+      isInit:false,
       orderList:[],
       page:1,
       total_pages:1

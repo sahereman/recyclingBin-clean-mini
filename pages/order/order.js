@@ -1,5 +1,5 @@
 const app = getApp()
-import { isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { getTopicCategories } from '../../service/api/order.js'
 import { TOKEN, USERINFO } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
@@ -9,7 +9,8 @@ Page({
     page:1,
     orderLists:[],
     isLast:false,//最后一页
-    total_pages:1//总页数
+    total_pages:1,//总页数
+    isInit:false
   },
   onShow:function(){
     var that = this;
@@ -55,7 +56,10 @@ Page({
     }
     getTopicCategories(params).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200){
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200){
         page++;
         for (var i = 0; i < res.data.data.length; i++) {
           orderLists.push(res.data.data[i]);
@@ -63,7 +67,8 @@ Page({
         that.setData({
           orderLists: orderLists,
           page: page,
-          total_pages:res.data.meta.pagination.total_pages
+          total_pages:res.data.meta.pagination.total_pages,
+          isInit:true
         })
       }
       
@@ -76,7 +81,8 @@ Page({
       page:1,
       total_pages:1,
       orderLists:[],
-      isLast:false
+      isLast:false,
+      isInit: false
     })
     that.getOrderList();
   },

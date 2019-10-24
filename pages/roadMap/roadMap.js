@@ -1,7 +1,8 @@
 const app = getApp()
 import {
   examineToken,
-  isTokenFailure
+  isTokenFailure,
+  forbiddenReLaunch
 } from '../../utils/util.js'
 import {
   TOKEN
@@ -140,7 +141,10 @@ Page({
     var temp = [];
     getMyMachine(params).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         console.log(res.data.data);
 
         for (var i = 0; i < res.data.data.length; i++) {

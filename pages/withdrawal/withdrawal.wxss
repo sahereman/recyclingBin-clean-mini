@@ -57,7 +57,9 @@ view{
   font-weight:bold;
   width:450rpx;
 }
-
+.fillMoney .fill_part .no_con{
+  font-size:30rpx;
+}
 .fillMoney .nextSetp{
   width:640rpx;
   height:100rpx;

@@ -11,7 +11,8 @@ export function getToken(requestData) {
     data: {
       username: requestData.username,
       password: requestData.password
-    }
+    },
+    showloading:2
   })
 } 
 // 刷新token

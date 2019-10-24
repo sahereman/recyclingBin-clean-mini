@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "价格参考"
+  "navigationBarTitleText": "价格参考",
+  "backgroundColor": "#49d392"
 }

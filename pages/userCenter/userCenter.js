@@ -1,5 +1,5 @@
 const app = getApp()
-import { isTokenFailure } from '../../utils/util.js'
+import { isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { TOKEN, USERINFO } from '../../common/const.js'
 import { updateToken, userInfoShow } from '../../service/api/user.js'
 Page({
@@ -52,7 +52,10 @@ Page({
     }
     userInfoShow(requestData).then(res => {
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         var reg = /^(\d{3})\d{4}(\d{4})$/
         var _temp = res.data.phone;
         that.setData({

@@ -1,5 +1,5 @@
 const app = getApp()
-import {  examineToken, isTokenFailure } from '../../utils/util.js'
+import { examineToken, isTokenFailure, forbiddenReLaunch } from '../../utils/util.js'
 import { getOrderDetail } from '../../service/api/order.js'
 import { TOKEN } from '../../common/const.js'
 import { updateToken } from '../../service/api/user.js'
@@ -46,9 +46,12 @@ Page({
       token: that.data.token
     }
     getOrderDetail(params).then(res => {
-      console.log(res.data);
+      console.log(res);
       wx.stopPullDownRefresh();
-      if (res.statusCode == 200) {
+      if (res.statusCode == 403) {
+        forbiddenReLaunch();
+        return;
+      } else if (res.statusCode == 200) {
         that.setData({
           orderMsg: res.data
         })

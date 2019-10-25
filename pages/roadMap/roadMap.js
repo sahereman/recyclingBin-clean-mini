@@ -148,10 +148,11 @@ Page({
         console.log(res.data.data);
 
         for (var i = 0; i < res.data.data.length; i++) {
-          if (res.data.data[i].type_fabric.status == 'full' || res.data.data[i].type_paper.status == 'full') {
+          if ((res.data.data[i].type_fabric.status == 'full' && res.data.data[i].type_fabric.permission == 1) || (res.data.data[i].type_paper.status == 'full' && res.data.data[i].type_paper.permission == 1)) {
             temp.push(res.data.data[i]);
           }
         }
+        console.log(temp);
         that.setRoadLine(temp);
       }
     })

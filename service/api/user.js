@@ -185,7 +185,7 @@ export function getMyMachine(requestData) {
   })
 }
 
-// 获取我的工蚁账单
+// 获取我的小黑点账单
 export function getMyOrder(requestData) {
   return request({
     url: 'recyclers/moneyBill?page=' + requestData.page,

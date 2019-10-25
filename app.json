@@ -26,7 +26,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "工蚁回收",
+    "navigationBarTitleText": "小黑点回收",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundColor": "#eeeeee"

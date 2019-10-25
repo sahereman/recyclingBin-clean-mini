@@ -13,7 +13,7 @@
     <view class="_user" wx:else>
       <image src="../../assets/images/home/temp_headimg.jpg"></image>
       <view class="_info">
-        <view class="_name cutWord">我是一只小工蚁</view>
+        <view class="_name cutWord">小黑点</view>
         <view class="_tell"></view>
       </view>
     </view>

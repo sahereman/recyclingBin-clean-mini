@@ -2,5 +2,5 @@
   "usingComponents": {
     "w-dialog": "/components/w-dialog/w-dialog"
   },
-  "navigationBarTitleText": "工蚁登录"
+  "navigationBarTitleText": "小黑点登录"
 }

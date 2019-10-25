@@ -39,7 +39,7 @@ Page({
   _getData() {
     this.getMyorder()
   },
-  getMyorder:function(){//获取我的工蚁账单
+  getMyorder: function () {//获取我的小黑点账单
     var that = this;
     var orderList = that.data.orderList;
     var page = that.data.page;

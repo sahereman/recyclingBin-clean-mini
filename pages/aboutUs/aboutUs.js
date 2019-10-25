@@ -42,7 +42,7 @@ Page({
   },
   onShareAppMessage: function (options) {
     return {
-      title: '工蚁回收',
+      title: '小黑点回收',
       path: '/pages/index/index',
       imageUrl: '../../assets/images/aboutUs/logo.png'
     }

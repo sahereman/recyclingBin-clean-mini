@@ -87,7 +87,7 @@
         <view class="getYorsinfo">
           <text>· </text> 你的地理位置信息
         </view>
-        <view class="getYorsinfo _last">将用于向您推荐附近的工蚁回收机</view>
+        <view class="getYorsinfo _last">将用于向您推荐附近的小黑点回收机</view>
       </view>
     </view>
     <view slot="operation" class="main-footer btn_part">

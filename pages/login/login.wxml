@@ -1,6 +1,6 @@
 <view>
   <view slot="content" class='main-content loginPart' wx:if="{{showModal}}">
-    <view class="dialog_title">工蚁回收箱
+    <view class="dialog_title">小黑点回收员
       <text>回收员</text>
     </view>
     <view class="content-row {{green_line_state==1?'green_line':''}}">
@@ -34,7 +34,7 @@
           <text>· </text> 获得你的昵称、头像、地区及性别</view>
         <view class="infoUse">
           <text>你的地理位置信息</text>
-          <text>将用于向您推荐附近的工蚁回收机</text>
+          <text>将用于向您推荐附近的小黑点回收机</text>
         </view>
       </view>
     </view>

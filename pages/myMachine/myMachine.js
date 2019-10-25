@@ -96,8 +96,9 @@ Page({
         }
       }
     } else if (index == 2) {
+      console.log("满箱");
       for (var i = 0; i < orderLists.length; i++) {
-        if (orderLists[i].type_fabric.status == 'full' || orderLists[i].type_paper.status == 'full') {
+        if ((orderLists[i].type_fabric.status == 'full' && orderLists[i].type_fabric.permission == 1) || (orderLists[i].type_paper.status == 'full' && orderLists[i].type_paper.permission == 1)) {
           temp.push(orderLists[i])
         }
       }

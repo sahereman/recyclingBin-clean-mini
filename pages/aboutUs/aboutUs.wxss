@@ -15,8 +15,8 @@ view{
   padding:0 24rpx;
 }
 .about_con .logo{
-  width:264rpx;
-  height:112rpx;
+  width:320rpx;
+  height:108rpx;
   margin-bottom:28rpx;
 }
 .about_con .aboutW{

@@ -26,6 +26,7 @@
           <text style="width:150rpx;">开户银行</text>
           <input bindinput='blurbankAd' name="bankname" value="{{bankad}}" placeholder-class="no_con" placeholder="请输入开户银行" />
         </view>
+        <view class="min_tip">最小提现金额为5.00元</view>
       </view>
        <button wx:if="{{isnext}}" class="nextSetp _next" formType="submit">确认提现</button>
       <view wx:else="{{!isnext}}" class="nextSetp">确认提现</view>

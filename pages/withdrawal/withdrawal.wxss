@@ -98,7 +98,10 @@ view{
   margin-bottom:24rpx;
 }
 
-
+.min_tip{
+  padding-top:10rpx;
+  color:#aaa;
+}
 
 
 

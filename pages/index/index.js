@@ -180,7 +180,7 @@ Page({
             } else if (response.statusCode == 422) {
               wx.showModal({
                 title: response.data.errors.token[0],
-                content: '请扫描工蚁回收相关二维码',
+                content: '请扫描小黑点回收相关二维码',
                 confirmText: '重新扫描',
                 success(re) {
                   if (re.confirm) {

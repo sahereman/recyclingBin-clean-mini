@@ -77,7 +77,29 @@ page .banner image{
 }
 
 
-
+/* 技术支持 */
+.user-home{
+  padding-bottom:120rpx;
+  min-height:100%;
+  box-sizing:border-box;
+}
+.Tech_support{
+  position:absolute;
+  left:0;
+  bottom:10rpx;
+  width:100%;
+  text-align:center;
+  line-height:50rpx;
+  height:100rpx;
+}
+.Tech_support .support1{
+  color:#cacaca;
+  font-size:28rpx;
+}
+.Tech_support .support2{
+  color:#7a7a7a;
+  font-size:24rpx;
+}
 
 
 

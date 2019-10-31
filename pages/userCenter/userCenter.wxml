@@ -26,4 +26,8 @@
       <image src="../../assets/images/my/go_help.png" mode='widthFix'></image>
     </navigator>
   </view>
+  <view class="Tech_support">
+    <view class="support1">v65 All rights reserved. ©2019</view>
+    <view class="support2">由尚禾维曼提供技术支持</view>
+  </view>
 </view>

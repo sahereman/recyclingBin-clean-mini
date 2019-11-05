@@ -42,9 +42,9 @@ Page({
   },
   onShareAppMessage: function (options) {
     return {
-      title: '小黑点回收',
+      title: '小黑点回收员',
       path: '/pages/index/index',
-      imageUrl: '../../assets/images/aboutUs/logo.png'
+      imageUrl: '../../assets/images/aboutUs/share_img.png'
     }
   },
 })
